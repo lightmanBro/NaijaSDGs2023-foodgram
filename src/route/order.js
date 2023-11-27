@@ -4,6 +4,9 @@ const auth = require('../middleware/auth');
 const route = express.Router();
 
 //When the order button is clicked on the client side
+// will get the datails and also the post id.
+//The owner of the order will be the req.user._id;
+//The poster id will be on the body object
 route.post('/order',auth,async (req, res) =>{
     //const {description} = req.body;
      const order = new Order({
@@ -18,36 +21,6 @@ route.post('/order',auth,async (req, res) =>{
     }
   })
 
-
-// Get/tasks?completed=false || completed=true
-// Get/tasks?completed=false&limit=5&skip=0 || completed=true
-
-route.get('/task',auth,async (req, res) =>{
-        const match = {};
-        const sort = {};
-        if(req.query.completed){
-            match.completed = req.query.completed === 'true';
-        }
-        if(req.query.sortBy){
-            const parts = req.query.sortBy.split(':');
-            sort[parts[0]] = parts[1] === 'desc'? -1 : 1;
-        }
-
-    try{
-//        const tasks = await Task.find({owner: req.user.id})
-        await req.user.populate({
-        path:'orders',
-        match,
-        options: {
-        limit: parseInt(req.query.limit),
-        skip: parseInt(req.query.skip),
-        sort}
-         })
-         res.status(200).send(req.user.tasks);
-    }catch(err){
-    res.status(500).send(err.message)
-    }
-  });
 
 //List order by id
 route.get('/order/:id',auth,async (req, res) =>{
@@ -68,7 +41,7 @@ route.get('/order/:id',auth,async (req, res) =>{
 route.patch('/order/:id',auth,async (req, res) =>{
 console.log(req.params.id,req.user.id)
     const updates = Object.keys(req.body);
-    const allowedUpdates = ['description','completed'];
+    const allowedUpdates = ['description','status'];
     const isValidOperation = updates.every((update)=> allowedUpdates.includes(update));
     if(!isValidOperation){ return res.status(400).send("Invalid updates") };
     try{

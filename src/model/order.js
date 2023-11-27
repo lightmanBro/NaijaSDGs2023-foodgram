@@ -6,11 +6,16 @@ const orderSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    completed:
+    postId: {type: String, required: true},
+    poster: {type: String, required: true},
+    unit:{type:Number, required:true},
+    price:{type:Number, default:0, required:true}
+    status:
     {
-        type: Boolean,
+        type: String,
         required: true,
-        default: false
+       enum:['active','pending','completed','rejected'],
+       default:'active'
     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
@@ -24,3 +29,9 @@ const orderSchema = new mongoose.Schema({
 
 const Task = new mongoose.model('Order', orderSchema)
 module.exports = Order;
+
+/*
+Explanation
+
+
+*/

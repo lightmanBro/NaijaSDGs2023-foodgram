@@ -20,6 +20,13 @@ const postSchema = new mongoose.Schema({
 }, {
     timestamps: true
 })
-
+/*When another user orders from this users post, this user's id on the order will be saved on the poster id
+so this user can get the order on its post by checking for any order that has its id as the poster id
+*/
+postSchema.virtual('orders',{//created a virtual array called orders
+ref:'Order',// This is where to fetch the data that will be in the array from
+localFields: {_id}, //Get the order id from the order
+foreignField:'poster' // This is the key for finding this user's order from the array on the order table.
+})
 const Task = new mongoose.model('Order', postSchema)
 module.exports = Post;
