@@ -1,10 +1,11 @@
-const Post = require('../model/post');
+const express = require('express')
+const Post = require('../model/posts');
 const multer = require('multer');
 const sharp = require('sharp');//Resizing of photo
 const auth = require('../middleware/auth');
 const route = express.Router();
 
-router.get('/posts',(req, res) => {
+route.get('/posts',async (req, res) => {
 	try{
 		const posts = await Post.find();
 		res.status(200).json(posts)
@@ -24,22 +25,15 @@ const upload = multer({
     }
 });
 
-router.post('/posts', auth, upload.single('uploadvideo'), async (req, res) => {
+route.post('/posts/create', auth, async (req, res) => {
+    console.log(req.body,req.user.id)
+    let filename;
     try {
-        if (req.file.mimetype.startsWith('video/')) {
-            const compressedVideo = await compressVideo(req.file.buffer);
-            req.file.buffer = compressedVideo;
-            const filename = `video_${Date.now()}`;
-        } else if (req.file.mimetype.startsWith('image/')) {
-            const compressedImage = await compressImage(req.file.buffer);
-            req.file.buffer = compressedImage;
-            const filename = `image_${Date.now()}`;
-        } else {
-            throw new Error('Please upload a valid image or video');
-        }
 
-        const posts = new Post({ ...req.body, owner: req.user.owner, filename });
+
+        const posts = new Post({ ...req.body, owner: req.user.id});
         await posts.save();
+        console.log(posts);
         res.status(200).send(posts);
     } catch (err) {
         res.send(err);
@@ -82,16 +76,16 @@ async function compressImage(imageBuffer) {
 
 
 
-route.get('/posts/:id',auth,(req, res) => {
+route.get('/posts/:id',auth,async (req, res) => {
 	const _id = req.params.id
 	try{
 		const post = await Post.findOne({ _id })
 		if(!posts){return res.status(404).send('Not available anymore')}
 		res.status(200).send({ post})
-	}
+	}catch(e){res.status(404).send}
 })
 
-route.patch('/posts/:id',auth,(req, res) =>{
+route.patch('/posts/:id',auth,async (req, res) =>{
 	const _id = req.params.id;
 	console.log(req.params.id,req.user.id)
     const updates = Object.keys(req.body);
@@ -109,3 +103,5 @@ route.patch('/posts/:id',auth,(req, res) =>{
 
     }catch(err){ res.status(400).send(err.message) }
     })
+
+module.exports = route;

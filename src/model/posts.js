@@ -25,8 +25,8 @@ so this user can get the order on its post by checking for any order that has it
 */
 postSchema.virtual('orders',{//created a virtual array called orders
 ref:'Order',// This is where to fetch the data that will be in the array from
-localFields: {_id}, //Get the order id from the order
+localField: '_id', //Get the order id from the order
 foreignField:'poster' // This is the key for finding this user's order from the array on the order table.
 })
-const Task = new mongoose.model('Order', postSchema)
+const Post = new mongoose.model('Post', postSchema)
 module.exports = Post;

@@ -28,13 +28,15 @@ res.status(400).send({error: err.message});
 });
 
 
-const taskRoute = require('./route/task')
+const taskRoute = require('./route/order')
 const userRoute = require('./route/user');
+const postRoute = require('./route/post')
 
 const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(userRoute);
 app.use(taskRoute);
+app.use(postRoute);
 
 app.listen(PORT,()=>console.log(`server listening on ${PORT}`));

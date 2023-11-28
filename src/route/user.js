@@ -7,7 +7,7 @@ const sharp = require('sharp');//Resizing of photo
 const mailer = require('../mailer/mail');// Sending mail
 
 
-route.post('/users',async (req, res) => {
+route.post('/users/register',async (req, res) => {
     const {name,email,password,age} = req.body;
     const user = await new User({name,email,password,age});
     const token = await user.generateAuthToken();
@@ -76,7 +76,7 @@ const upload = multer({
         cb(null,true); }
     })
 //Passed in many middleware to be run before the final upload is done.
-route.post('/users/me/avatar',auth,upload.single('avatar'),async (req, res)=>{
+route.post('/users/me/upload-avatar',auth,upload.single('avatar'),async (req, res)=>{
     //Using sharp to compress and modify the image.
     const buffer =await sharp(req.file.buffer).resize({width:250, height:250}).png().toBuffer()
             // save the file as an array buffer file type.
@@ -89,7 +89,7 @@ route.post('/users/me/avatar',auth,upload.single('avatar'),async (req, res)=>{
   })
 
 
-route.patch('/users/me', auth ,async (req, res) =>{
+route.patch('/users/me/update', auth ,async (req, res) =>{
     const updates = Object.keys(req.body);
     const allowedUpdates = ['name', 'email', 'password', 'age'];
     const isValidOperation = updates.every((update)=> allowedUpdates.includes(update));
@@ -103,7 +103,7 @@ route.patch('/users/me', auth ,async (req, res) =>{
     }
 });
 
-route.delete('/users/me',auth,async (req, res)=>{
+route.delete('/users/me/delete',auth,async (req, res)=>{
     const _id = req.user._id;
     console.log(_id);
     try{
@@ -117,7 +117,7 @@ route.delete('/users/me',auth,async (req, res)=>{
     }
   })
 
-route.delete('/users/me/avatar',auth, async (req, res)=>{
+route.delete('/users/me/remove-avatar',auth, async (req, res)=>{
     try{
         req.user.avatar = null||undefined||"";
         await req.user.save();
@@ -127,7 +127,7 @@ route.delete('/users/me/avatar',auth, async (req, res)=>{
     }
 })
 
-route.get('/user/:id/avatar', async (req, res)=>{
+route.get('/user/:id/show-avatar', async (req, res)=>{
     try{
         const user = await User.findById(req.params.id);
         if(!user || !user.avatar){

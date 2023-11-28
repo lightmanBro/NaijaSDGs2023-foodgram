@@ -8,6 +8,7 @@ const route = express.Router();
 //The owner of the order will be the req.user._id;
 //The poster id will be on the body object
 route.post('/order',auth,async (req, res) =>{
+    console.log(req.body)
     //const {description} = req.body;
      const order = new Order({
         ...req.body,
@@ -15,14 +16,14 @@ route.post('/order',auth,async (req, res) =>{
         })
     try{
         await order.save()
-        res.status(201).send(task);
+        res.status(201).send(order);
     }catch(err){
         res.status(400).send(err.message)
     }
   })
 
 
-//List order by id
+//List order by id and status
 route.get('/order/:id',auth,async (req, res) =>{
     const _id = req.params.id;
     console.log(req.user.id);

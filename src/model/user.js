@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');// Validator for validating input values
 const bcrypt = require('bcrypt');// Password encryption
 const jwt = require('jsonwebtoken'); // web token for authentication
-const Task = require('./task')
+const Order = require('./order')
 
 const userSchema = new mongoose.Schema({
     name: {
