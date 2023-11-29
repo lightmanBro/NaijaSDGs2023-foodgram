@@ -11,20 +11,26 @@ body{
     }
 
 .order-body{
+    position: absolute;
+    /* background-color: rgba(255, 166, 0, 0); */
     padding: 2rem;
     /* border:black .25rem solid; */
     margin: auto;
     text-align: center;
     width: 100%;
     display: flex;
+    padding: 5rem;
+}
+.order-img img{
+    border-radius: .5rem;
 }
 .order-etc{
-    border:black .25rem solid;
+    /* border:black .25rem solid; */
     padding: .5rem;
     width: 100%;
 }
 .actions{
-    border:#eee .25rem solid;
+    /* border:#eee .25rem solid; */
     padding: 1rem;
 }
 .store-name{
@@ -32,9 +38,172 @@ body{
     font-weight: bolder;
 }
 .order-details{
-    font-weight: 500;
-    font-size: 1.5rem;
+    font-weight: 700;
+    font-size: 3.5rem;
+    border-bottom: .15rem solid gray;
+    margin: auto;
+}
+.price{
+    background-color: rgb(255, 221, 0);
+    padding: 1rem;
 }
 button{
     background-color: rgb(255, 221, 0);
+    outline: none;
+    border: none;
+    border-radius: .25rem;
+    padding:.5rem 2rem;
+    font-size: 2.5rem;
+    margin: 2rem;
+    font-weight: 650;
+    color: rgb(81, 80, 80);
+}
+.order-details-paragraph{
+    /* border:#eee .25rem solid; */
+    font-weight: 500;
+    font-size: 2rem;
+    height: fit-content;
+    width: fit-content;
+    text-align: left;
+    padding: 2rem;
+}
+.other-details{
+     border:#eee .25rem solid ;
+     height: fit-content;
+     width: 100%;
+     margin: auto;
+     border-radius: .25rem;
+     padding: 1rem;
+     box-shadow: 0 .1rem .5rem .1rem  grey;
+}
+label {
+    font-size: 2rem;
+}
+select {
+    font-size: 1.5rem;
+    border: .15rem solid grey;
+    padding: .5rem 1rem;
+    margin-left: 1rem;
+    outline: none;
+}
+option {
+    padding: 1.5rem;
+    font-size: 1.75rem;
+}
+.action-group{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    width: 80%;
+    margin: auto;
+    padding: 1.5rem;
+}
+.action-group input {
+    height: 3.5rem;
+    width: 2rem;
+    text-align: center;
+    background-color:white;
+    outline: none;
+    border: .25rem solid grey;
+    font-size: 2rem;
+}
+span .material-symbols-outlined{
+    height: 100%;
+    padding: 1rem;
+}
+.proceed{
+    background-color: rgb(255, 221, 0);
+    font-size: 2rem;
+    width: 40%;
+    margin: auto;
+    padding: 1rem;
+}
+/*      */
+.user-action{
+    position: fixed;
+    top: 2rem;
+    left: 2.5rem;
+    gap: 3.5rem;
+    border-radius: .5rem;
+    padding: .5rem;
+    padding-inline: 2rem;
+    background-color: rgb(255, 221, 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.inner{
+    text-align: center;
+}
+.balance{
+    font-size: 2.5rem;
+    font-weight: 600;
+    
+    align-items: center;
+    justify-content: center;
+}
+.orders , .messages,.profile, .balance{
+    font-size: 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: rgb(81, 80, 80);
+}
+@media only screen and (max-width:700px) {
+    body{
+        /* background-color: black; */
+        
+    }
+    .order-body{
+        display: block;
+    }
+    .post-container{
+        width: 100%;
+    }
+    .user-action{
+        width: 100%;
+        left: 0;
+        margin: auto;
+        border-radius: 0;
+        top: 0;
+        padding-inline: 2rem;
+        padding: 2rem;
+    }
+
+    .order-img img{
+        width: 100%;
+        border-radius: 0;
+        margin-top: 1rem;
+    }
+    .order-body{
+        padding: 0;
+    }
+    .orders a, .messages,.profile, .balance{
+        font-size: 1.25rem;
+        left: 0;
+        
+    }
+    .order-details {
+        width: fit-content;
+    }
+    .order-details-paragraph {
+        display: block;
+        width: 100%;
+        height: fit-content;
+        padding-bottom: 0;
+        /* border: .2rem solid tomato; */
+    }
+    .actions {
+        display: block;
+        height: fit-content;
+    }
+    button{
+        display: block;
+        /* border: .2rem solid tomato; */
+        
+    }
 }
