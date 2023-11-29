@@ -1,4 +1,6 @@
 const express = require('express');
+const hbs = require('hbs');
+const path = require('path');
 const Post = require('../model/posts');
 const multer = require('multer');
 const sharp = require('sharp');//Resizing of photo
@@ -10,7 +12,8 @@ const route = express.Router();
 route.get('/posts', async (req, res) => {
     try {
         const posts = await Post.find();
-        res.status(200).json(posts)
+        // res.status(200).json(posts);
+        res.render('dashboard')
     } catch (err) {
         res.send(err);
     }

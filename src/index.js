@@ -1,6 +1,8 @@
 require('./db/mongodb')
+const path = require('path')
 const express = require('express')
 const app = express()
+const hbs = require('hbs');
 const multer = require('multer');
 require('dotenv').config()
 
@@ -11,6 +13,19 @@ const Order = require('./model/order');
 const Post = require('./model/posts');
 const User = require('./model/user')
 const PORT = process.env.PORT;
+
+//Define the config file for the hbs template
+const publicDirectory = path.join(__dirname,'./public');
+const viewPath = path.join(__dirname,'./templates/views');
+const partialPath = path.join(__dirname,'./templates/partials');
+
+// setup the views for the template engina and views locator.
+app.set('view engine', 'hbs');
+app.set('views',viewPath);
+
+//The public directory to serve the client
+app.use(express.static(publicDirectory));
+
 
 app.use(express.json());
 app.use(userRoute);
