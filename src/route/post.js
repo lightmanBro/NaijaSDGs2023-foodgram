@@ -5,6 +5,8 @@ const sharp = require('sharp');//Resizing of photo
 const auth = require('../middleware/auth');
 const route = express.Router();
 
+
+// This will serve as the dashboard where all posts will be displayed
 route.get('/posts', async (req, res) => {
     try {
         const posts = await Post.find();
@@ -26,11 +28,14 @@ const upload = multer({
     }
 });
 
-route.post('/posts/create', auth, upload.single('upload'), async (req, res) => {
-    console.log(req.body, req.file.buffer);
-    const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer();
-   
-    const posts = new Post({ ...req.body, owner: req.user.id, file:buffer });
+
+// Create a media post
+route.post('/posts/createandupload', auth, upload.single('upload'), async (req, res) => {
+    // console.log(req.body, req.file.buffer);
+    req.file.buffer ? req.file.buffer : undefined
+    const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer() || '';
+
+    const posts = new Post({ ...req.body, owner: req.user.id, file: buffer });
 
     try {
         await posts.save();
@@ -41,20 +46,33 @@ route.post('/posts/create', auth, upload.single('upload'), async (req, res) => {
     }
 });
 
+//Create a text post
+route.post('/posts/create', auth, async (req, res) => {
+    const posts = new Post({ ...req.body, owner: req.user.id });
+    try {
+        await posts.save();
+        console.log(posts);
+        res.status(200).send(posts);
+    } catch (err) {
+        res.send(err);
+    }
+});
 
 
+//View posts on click
 route.get('/posts/:id', auth, async (req, res) => {
     const _id = req.params.id
     try {
         const post = await Post.findOne({ _id })
-        if (!posts) { return res.status(404).send('Not available anymore') }
+        if (!post) { return res.status(404).send('Not available anymore') }
         res.status(200).send({ post })
     } catch (e) { res.status(404).send }
 })
 
+//Edit posts
 route.patch('/posts/:id', auth, async (req, res) => {
     const _id = req.params.id;
-    console.log(req.params.id, req.user.id)
+
     const updates = Object.keys(req.body);
     const allowedUpdates = ['description', 'orderAvailable', 'orderLeft'];
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update));
@@ -71,4 +89,29 @@ route.patch('/posts/:id', auth, async (req, res) => {
     } catch (err) { res.status(400).send(err.message) }
 })
 
+//Delete posts
+route.delete('/posts/:id', auth, async (req, res) => {
+    try {
+        const post = await Order.findByIdAndDelete({ _id: req.params.id, owner: req.user.id })
+        if (!post) {
+            return res.status(404).send("Post not found or invalid id")
+        }
+        res.status(200).send(post);
+    } catch (err) {
+        res.status(400).send(err.message)
+    }
+})
+
+//Working Perfectly
+//List orders associated to a post
+route.get('/postsorders/:id', auth, async (req, res) => {
+    const id = req.params.id
+    const posts = await Post.findById(id);
+    try {
+        await posts.populate('orders');
+        res.status(200).send(posts.orders)
+    } catch (err) {
+        res.status(404).send(err);
+    }
+})
 module.exports = route;

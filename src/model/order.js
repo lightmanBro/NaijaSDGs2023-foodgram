@@ -1,12 +1,8 @@
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
-    description:
-    {
-        type: String,
-        required: true
-    },
-    postId: {type: String, required: true},
+    
+    postId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Post'},
     poster: {type: String, required: true},
     unit:{type:Number, required:true},
     price:{type:Number, default:0, required:true},
@@ -26,6 +22,7 @@ const orderSchema = new mongoose.Schema({
 }, {
     timestamps: true
 })
+
 
 const Order = new mongoose.model('Order', orderSchema)
 module.exports = Order;
