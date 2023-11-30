@@ -237,7 +237,7 @@ body{
         gap: 0;
     }
     .post-container{
-        width: 100%;
+        width: 100vw;
         margin: auto;
     }
     .post-body{

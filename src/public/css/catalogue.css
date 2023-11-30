@@ -152,10 +152,16 @@ body{
         padding: 0;
     }
     .left-container,.right-container{
-        width: 100%;
+        width: 100vw;
         padding: .25rem;
+        
+    }
+    .normal-orders{
+        padding: 0;
     }
     .normal-orders, .schedule-orders{
-        width: 100%;
+        width: 100vw;
+        font-size: 1.5rem;
+        font-weight: 400;
     }
 }
