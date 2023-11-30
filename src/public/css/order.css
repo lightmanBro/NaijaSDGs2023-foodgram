@@ -267,4 +267,8 @@ span .material-symbols-outlined{
         /* border: .2rem solid tomato; */
         
     }
+    .action-group{
+        font-size: 1.5rem;
+        padding: 1rem 0;
+    }
 }
