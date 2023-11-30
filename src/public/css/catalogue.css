@@ -10,14 +10,15 @@ body{
     color: rgb(65, 64, 64);
     }
 .container{
-    border: .25rem solid tomato;
+    border: .25rem solid rgb(211, 211, 211);
     padding: 1rem;
     display: flex;
     flex-wrap: wrap;
     margin-top: 7rem;
+    /* box-shadow: 0 .1rem .5rem .1rem  grey; */
 }
 .left-container,.right-container{
-    border: .15rem solid black;
+    /* border: .15rem solid black; */
     padding: 1rem;
     width: 50%;
 }
@@ -40,10 +41,8 @@ body{
     align-items: center;
     justify-content: space-around;
 }
-.right-container{
-    border: .15rem solid green;
-    
-}
+
+
 
 .normal-orders{
     /* border: .15rem solid blue; */
@@ -99,8 +98,8 @@ body{
     font-size: 2.5rem;
     /* align-self: flex-start; */
     margin-left: 2rem;
-    padding: 1rem;
-    gap: 1rem;
+    padding: .5rem;
+    gap: .25rem;
     
 }
 .status-buttons{
@@ -117,4 +116,44 @@ body{
     font-weight: 700;
     font-size: 1.75rem;
     color: grey;
+}
+
+
+/* Right container */
+.right-container{
+    /* border: .15rem solid green; */
+    
+}
+.right-container-heading{
+    text-align: center;
+    background-color: rgb(161, 161, 161);
+    padding: 1rem;
+}
+
+#cancelled{
+    color: red;
+    font-weight: 600;
+}
+#completed{
+    color: rgb(19, 214, 19);
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+
+
+/* Media query */
+
+@media only screen and (max-width: 650px) {
+
+
+    .container{
+        display: block;
+    }
+    .left-container,.right-container{
+        width: 100%;
+    }
+    .normal-orders, .schedule-orders{
+        width: 100%;
+    }
 }

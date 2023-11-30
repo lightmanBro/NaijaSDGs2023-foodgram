@@ -186,6 +186,7 @@ span .material-symbols-outlined{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    box-shadow: 0 .1rem .5rem .1rem  grey;
 }
 .inner{
     text-align: center;
