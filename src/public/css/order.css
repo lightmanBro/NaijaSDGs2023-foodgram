@@ -13,7 +13,6 @@ body{
 .order-body{
     position: absolute;
     /* background-color: rgba(255, 166, 0, 0); */
-    padding: 2rem;
     /* border:black .25rem solid; */
     margin: auto;
     text-align: center;
@@ -216,6 +215,7 @@ span .material-symbols-outlined{
     .post-container{
         width: 100%;
         margin: auto;
+        display: block;
     }
     .user-action{
         width: 100%;
