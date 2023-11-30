@@ -31,6 +31,7 @@ body{
     gap: 1rem;
     margin: auto;
 }
+/* Logo design */
 .logo{
     background-color:rgb(255, 221, 0) ;
     box-shadow: 0 .1rem .5rem .1rem  grey;
@@ -42,6 +43,20 @@ body{
     left: 1rem;
     top: 1rem;
     font-size: 1.5rem;
+    width: fit-content;
+}
+.search input{
+    width: 25rem;
+    margin:0 2rem;
+    height: 3rem;
+    background-color: rgb(242, 220, 95);
+    border: .15rem solid #919090;
+    border-radius: 5rem;
+}
+.search input::placeholder{
+    text-align: center;
+    font-size: 1.25rem;
+    padding: 1rem;
 }
 .post-container{
     /* border:#eee .25rem solid; */
@@ -58,7 +73,7 @@ body{
     padding: 1.25rem;
     background-color: rgb(255, 221, 0);
     box-shadow: 0 .1rem .5rem .1rem  grey;
-    border-radius: .25rem;
+    border-radius: .5rem;
     width: fit-content;
     font-size: 1.5rem;
     font-weight: 700;
@@ -125,6 +140,9 @@ body{
     align-items: center;
     justify-content: space-evenly;
     /* border-bottom:#eee .25rem solid; */
+}
+.grey{
+    background-color: rgba(242, 238, 238, 0.548);
 }
 .post-actions button{
     outline: none;
@@ -231,6 +249,16 @@ body{
     body{
         /* background-color: black; */
         
+    }
+    .logo{
+        width: fit-content;
+        margin: auto;
+        left: .25rem;
+        right: .25rem;
+       
+    }
+    .search input{
+        margin: 0 1rem;
     }
     .container-body{
         position: relative;

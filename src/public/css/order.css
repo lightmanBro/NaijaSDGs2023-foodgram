@@ -22,15 +22,20 @@ body{
 }
 .order-img img{
     border-radius: .5rem;
+    height: 50vh;
 }
 .order-etc{
     /* border:black .25rem solid; */
     padding: .5rem;
-    width: 100%;
+    width: 50%;
+    margin: auto;
 }
 .actions{
     /* border:#eee .25rem solid; */
     padding: 1rem;
+}
+.store-details{
+    background-color: rgba(242, 238, 238, 0.548);
 }
 .store-name{
     font-size: 2.25rem;
@@ -51,6 +56,7 @@ body{
     font-weight: 700;
     font-size: 3.5rem;
     border-bottom: .15rem solid gray;
+    border-bottom-width: inherit;
     margin: auto;
 }
 .price{
@@ -75,6 +81,8 @@ button{
     height: fit-content;
     width: fit-content;
     text-align: left;
+    width: 50%;
+    margin: auto;
     padding: 2rem;
 }
 .other-details{
@@ -87,14 +95,15 @@ button{
      /* box-shadow: 0 .1rem .5rem .1rem  grey; */
 }
 label {
-    font-size: 2rem;
+    font-size: 1.25rem;
 }
 select {
     font-size: 1.5rem;
-    border: .15rem solid grey;
+    border: none;
     padding: .5rem 1rem;
     margin-left: 1rem;
     outline: none;
+    color: tan;
 }
 option {
     padding: 1.5rem;
@@ -115,7 +124,7 @@ option {
     text-align: center;
     background-color:white;
     outline: none;
-    border: .25rem solid grey;
+    border: none;
     font-size: 2rem;
 }
 span .material-symbols-outlined{
@@ -123,7 +132,8 @@ span .material-symbols-outlined{
     padding: 1rem;
 }
 .proceed{
-    background-color: rgb(255, 221, 0);
+    background-color: rgba(255, 221, 0, 0.484);
+    box-shadow: 0 .1rem .5rem .1rem  rgba(182, 182, 182, 0.584);
     font-size: 2rem;
     font-weight: 700;
     width: 40%;
@@ -210,6 +220,7 @@ span .material-symbols-outlined{
 }
 @media only screen and (max-width: 650px) {
     .order-body{
+        margin-top: 5rem;
         display: block;
         padding: 0;
     }
@@ -217,6 +228,15 @@ span .material-symbols-outlined{
         width: 100%;
         margin: auto;
         display: block;
+    }
+    .order-etc{
+        width: 100%;
+        margin: auto;
+    }
+    .order-details{
+        font-size: 2.5rem;
+        display: flex;
+        flex-direction: column;
     }
     .user-action{
         width: 100%;
@@ -227,10 +247,12 @@ span .material-symbols-outlined{
         padding-inline: 2rem;
         padding: 2rem;
     }
-
+    .order-img{
+        padding: 2rem;
+    }
     .order-img img{
         width: 100%;
-        border-radius: 0;
+        border-radius: 5rem;
         margin-top: 1rem;
     }
     .order-body{
@@ -246,7 +268,13 @@ span .material-symbols-outlined{
         /* font-size: 1rem; */
         display: flex;
         flex-wrap: wrap;
-        flex-direction: column;
+        align-items: flex-start;
+        /* flex-direction: column; */
+    }
+    .btns{
+        /* border: .25rem solid tomato; */
+        display: flex;
+        background-color: rgba(242, 238, 238, 0.548);
     }
     .price{
         width: fit-content;
@@ -257,6 +285,7 @@ span .material-symbols-outlined{
         width: 100%;
         height: fit-content;
         padding-bottom: 0;
+        font-size: 1.5rem;
         /* border: .2rem solid tomato; */
     }
     .actions {
