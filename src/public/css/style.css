@@ -153,7 +153,51 @@ body{
     margin: .5rem;
 }
 
+/* New Post */
 
+.new-post{
+    position: fixed;
+    top: 5rem;
+    left: 5rem;
+    margin: auto;
+    width: 35rem;
+    height: 60rem;
+    background-color: white;
+    border:#eee .25rem solid;
+    padding: .5rem;
+    border-radius: .25rem;
+}
+.new-post-img{
+    /* border:#eee .25rem solid; */
+    height: 40rem;
+}
+.new-post-img input{
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+.input-box{
+    padding: .5rem;
+}
+.input-box input{
+    width: 100%;
+    height: 5rem;
+    border:#919090 .25rem solid;
+    font-size: 1.5rem;
+    padding-inline: 1rem;
+    outline: none;
+    border-radius: .25rem;
+}
+.post-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 2rem;
+}
+.post-btn{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
 @media only screen and (max-width: 650px) {
     body{
         /* background-color: black; */
