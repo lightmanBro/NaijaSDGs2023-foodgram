@@ -243,7 +243,9 @@ body{
     }
     .new-post{
         margin: auto;
-        top: 5rem;
+        /* top: 5rem; */
+        /* left: auto; */
+        right: auto;
     }
 }
 
