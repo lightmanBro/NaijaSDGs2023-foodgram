@@ -241,6 +241,10 @@ body{
     .post-body img{
         width: 100%;
     }
+    .new-post{
+        margin: auto;
+        top: 5rem;
+    }
 }
 
 
