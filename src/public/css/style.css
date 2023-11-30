@@ -243,6 +243,7 @@ body{
     }
     .new-post{
         margin: auto;
+        border: none;
         /* top: 5rem; */
         /* left: auto; */
         right: auto;
