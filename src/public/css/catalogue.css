@@ -151,9 +151,10 @@ body{
     .container{
         display: block;
         padding: .25rem;
-        margin: auto;
+        margin: 0;
         margin-top: 8.5rem;
         border: none;
+        margin-left: -.5rem;
     }
     .left-container,.right-container{
         width: 100vw;
@@ -165,7 +166,8 @@ body{
         
     }
     .normal-orders{
-        padding: 0;
+        padding: .25rem;
+        margin-left: -.25rem;
     }
     .normal-orders, .schedule-orders{
         width: 100vw;
