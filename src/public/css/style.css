@@ -233,18 +233,22 @@ body{
         
     }
     .container-body{
+        position: relative;
         display: block;
         gap: 0;
+        margin: auto;
     }
     .post-container{
         width: 100vw;
         margin: auto;
+        right: 0;
     }
     .post-body{
         margin: auto;
     }
     .post-body img{
         width: 100%;
+        text-align: center;
     }
     .new-post{
         margin: auto;

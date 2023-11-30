@@ -150,10 +150,14 @@ body{
     .container{
         display: block;
         padding: 0;
+        margin: auto;
+        margin-top: 8.5rem;
+        border: none;
     }
     .left-container,.right-container{
         width: 100vw;
         padding: .25rem;
+        margin: auto;
         
     }
     .normal-orders{
