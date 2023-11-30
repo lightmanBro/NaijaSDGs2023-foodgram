@@ -149,9 +149,11 @@ body{
 
     .container{
         display: block;
+        padding: 0;
     }
     .left-container,.right-container{
         width: 100%;
+        padding: .25rem;
     }
     .normal-orders, .schedule-orders{
         width: 100%;
