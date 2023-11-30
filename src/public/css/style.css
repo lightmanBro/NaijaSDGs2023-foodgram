@@ -139,6 +139,9 @@ body{
     width: fit-content;
     padding: 1rem;
 }
+.likes{
+    display: flex;
+}
 .likes,.time{
     font-size: 2rem;
     color: rgb(92, 92, 92);
