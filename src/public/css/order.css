@@ -36,6 +36,17 @@ body{
 .store-name{
     font-size: 2.25rem;
     font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.store-name span:first-child{
+    margin-left: 1rem;
+}
+.silver{
+    margin-left: 2rem;
+    color:goldenrod;
+    font-size: 4rem;
 }
 .order-details{
     font-weight: 700;
@@ -74,7 +85,7 @@ button{
      margin: auto;
      border-radius: .25rem;
      padding: 1rem;
-     box-shadow: 0 .1rem .5rem .1rem  grey;
+     /* box-shadow: 0 .1rem .5rem .1rem  grey; */
 }
 label {
     font-size: 2rem;
@@ -115,9 +126,53 @@ span .material-symbols-outlined{
 .proceed{
     background-color: rgb(255, 221, 0);
     font-size: 2rem;
+    font-weight: 700;
     width: 40%;
     margin: auto;
     padding: 1rem;
+}
+
+
+.store-reviews{
+    border:#eee .25rem solid ;
+    /* padding: 1rem; */
+}
+.product-rating-heading{
+    font-size: 1.5rem;
+}
+.store-rate{
+    background-color: rgb(228, 228, 228);
+    text-align: left;
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: grey;
+    font-weight: 700;
+}
+.customer-review{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1rem;
+    font-size: 1.5rem;
+    gap: 1rem;
+}
+.star{
+    color: goldenrod;
+    margin-right: -1rem;
+}
+.customer-name{
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+.customer-comments{
+    font-size: 1.25rem;
+}
+.more-comment{
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    padding: 1.25rem;
+    background-color: rgb(228, 228, 228);
 }
 /*      */
 .user-action{

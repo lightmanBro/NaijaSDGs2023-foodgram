@@ -12,8 +12,8 @@ const route = express.Router();
 route.get('/posts', async (req, res) => {
     try {
         const posts = await Post.find();
-        // res.status(200).json(posts);
-        res.render('dashboard')
+        res.status(200).json(posts);
+        // res.render('dashboard')
     } catch (err) {
         res.send(err);
     }

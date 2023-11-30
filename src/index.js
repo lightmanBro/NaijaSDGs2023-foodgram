@@ -2,9 +2,13 @@ require('./db/mongodb')
 const path = require('path')
 const express = require('express')
 const app = express()
+const cors = require('cors');
 const hbs = require('hbs');
 const multer = require('multer');
 require('dotenv').config()
+
+const corsOptions = { origin: '*' };
+  
 
 const taskRoute = require('./route/order')
 const userRoute = require('./route/user');
@@ -26,7 +30,7 @@ app.set('views',viewPath);
 //The public directory to serve the client
 app.use(express.static(publicDirectory));
 
-
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(userRoute);
 app.use(taskRoute);
