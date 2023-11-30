@@ -58,6 +58,7 @@ body{
     width: fit-content;
     font-size: 1.5rem;
     font-weight: 700;
+    z-index: 100;
 }
 .post-heading{
     font-size: 1.5rem;
@@ -154,14 +155,16 @@ body{
 }
 
 /* New Post */
-
+.hidden{
+    display: none;
+}
 .new-post{
     position: fixed;
     top: 5rem;
     left: 5rem;
     margin: auto;
     width: 35rem;
-    height: 60rem;
+    height: 55rem;
     background-color: white;
     border:#eee .25rem solid;
     padding: .5rem;
@@ -170,6 +173,14 @@ body{
 .new-post-img{
     /* border:#eee .25rem solid; */
     height: 40rem;
+    text-align: center;
+}
+.new-post-img span{
+    position: absolute;
+    top: 20rem;
+    left: 15rem;
+    font-size: 5rem;
+    color: rgb(92, 92, 92);
 }
 .new-post-img input{
     height: 100%;
@@ -187,17 +198,30 @@ body{
     padding-inline: 1rem;
     outline: none;
     border-radius: .25rem;
+    color: rgb(60, 60, 60);
+}
+.input-box input::placeholder{
+    text-align: center;
 }
 .post-buttons{
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-inline: 2rem;
+    margin-top: 2rem;
 }
 .post-btn{
     font-weight: 700;
     font-size: 1.5rem;
+    color: rgb(92, 92, 92);
+    padding: .5rem 1rem;
+    background-color: white;
+    outline: none;
+    border: #919090 solid .25rem;
+    border-radius: .25rem;
 }
+
+
 @media only screen and (max-width: 650px) {
     body{
         /* background-color: black; */
