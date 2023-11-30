@@ -251,7 +251,7 @@ body{
         border: none;
         /* top: 5rem; */
         /* left: auto; */
-        right: auto;
+        right: 1rem;
     }
 }
 
