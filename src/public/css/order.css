@@ -242,6 +242,7 @@ span .material-symbols-outlined{
     }
     .order-details {
         width: fit-content;
+        font-size: 1rem;
     }
     .order-details-paragraph {
         display: block;
