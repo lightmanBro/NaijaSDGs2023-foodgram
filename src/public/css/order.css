@@ -211,6 +211,7 @@ span .material-symbols-outlined{
 @media only screen and (max-width: 650px) {
     .order-body{
         display: block;
+        padding: 0;
     }
     .post-container{
         width: 100%;

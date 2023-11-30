@@ -161,8 +161,12 @@ body{
     }
     .container-body{
         display: block;
+        gap: 0;
     }
     .post-container{
+        width: 100%;
+    }
+    .post-body img{
         width: 100%;
     }
 }
