@@ -242,7 +242,14 @@ span .material-symbols-outlined{
     }
     .order-details {
         width: fit-content;
-        font-size: 1rem;
+        /* font-size: 1rem; */
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .price{
+        width: fit-content;
+        margin: auto;
     }
     .order-details-paragraph {
         display: block;
