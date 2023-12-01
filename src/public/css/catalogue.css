@@ -203,4 +203,10 @@ body{
     .right-container-heading{
         width: 100%;
     }
+    .order-box{
+        height: 12rem;
+    }
+    .order-image{
+        height: inherit;
+    }
 }
