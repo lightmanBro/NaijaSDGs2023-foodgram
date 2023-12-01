@@ -61,6 +61,7 @@ body{
 .post-container{
     height: fit-content;
     width: 35rem;
+    /* display: block; */
 }
 /*                */
 .add{
@@ -78,6 +79,7 @@ body{
     z-index: 100;
 }
 .post-heading{
+    /* border: .2rem solid tomato; */
     font-size: 1.5rem;
     color: rgb(65, 64, 64);
     font-weight: 600;
@@ -282,12 +284,11 @@ body{
     }
     .post-container{
         width: 98vw;
-        height: 90vh;
-        /* border: .2rem solid red; */
         right: 0;
     }
     .post-body{
         margin: auto;
+        /* border: .2rem solid red; */
     }
     .post-body video{
         width: 100%;
