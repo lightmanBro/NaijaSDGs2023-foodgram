@@ -131,6 +131,10 @@ body{
     width: 100%;
     height: 100%;
 }
+.post-body video{
+    height: 100%;
+    width: 100%;
+}
 .post-actions{
     font-size: 1.5rem;
     color: rgb(65, 64, 64);
@@ -274,6 +278,9 @@ body{
     }
     .post-body{
         margin: auto;
+    }
+    .post-body video{
+        width: 100%;
     }
     .post-body img{
         width: 100%;
