@@ -9,18 +9,45 @@ body{
     background-color:white;
     }
 .container-heading{
+    position: relative;
     padding: 2rem;
     border:#eee .25rem solid;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 20rem;
+    flex-direction: row;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    --ms-overflow-style:none;
+    /* flex-wrap: wrap; */
+    overflow: scroll;
+    /* width: 100vw; */
 }
-
+.container-heading::-webkit-scrollbar{
+    display: none;
+}
 .status-boxes{
+    position: relative;
+    /* box-sizing: border-box; */
     border-radius: 50%;
     height: 10rem;
     width: 10rem;
-    border:#eee .25rem solid;
+    border:#eee .5rem solid;
+}
+.status-boxes span{
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    font-size: 1.5rem;
+    left: 25%;
+    color: white;
+    font-weight: 700;
+}
+.status-boxes img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
 }
 .container-body{
     /* border: .25rem solid purple; */
