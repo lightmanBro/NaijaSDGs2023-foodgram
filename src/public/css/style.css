@@ -283,7 +283,7 @@ body{
     .post-container{
         width: 98vw;
         height: 90vh;
-        border: .2rem solid red;
+        /* border: .2rem solid red; */
         right: 0;
     }
     .post-body{
