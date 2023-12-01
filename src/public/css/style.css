@@ -9,19 +9,20 @@ body{
     background-color:white;
     }
 .container-heading{
-    position: relative;
+    /* position: relative; */
     padding: 2rem;
     border:#eee .25rem solid;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 20rem;
-    flex-direction: row;
+    width: 100vw;
+    /* flex-direction: row; */
     scroll-behavior: smooth;
     scrollbar-width: none;
     --ms-overflow-style:none;
     /* flex-wrap: wrap; */
-    overflow: scroll;
+    overflow: auto;
     /* width: 100vw; */
 }
 .container-heading::-webkit-scrollbar{
