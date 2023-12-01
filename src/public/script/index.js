@@ -26,21 +26,32 @@ form.addEventListener('submit',(e)=>{
 
 /*Video autoplay*/
 const video = document.querySelector('#lazyloader');
+let isPlaying = false;
 
 const options = {
     root:null,
     rootMargin:'0px',
-    threshold:0.25
+    threshold:0.75
 }
+
+const playVideoInView = () =>{
+    if(document.visibilityState === 'visible'){
+        video.src = video.querySelector('source').getAttribute('data-src');
+        video.play();
+        console.log(document.visibilityState)
+    }
+};
 
 try {
     const observer = new IntersectionObserver((entries,observer)=>{
     
         entries.forEach(entry=>{
             if(entry.isIntersecting){
-                video.play();
-    
-                observer.unobserve(entry.target);
+                playVideoInView();
+                console.log(entry)
+            }else if(!entry.isIntersecting){
+                video.pause()
+                console.log(entry)
             }
         });
     },options);

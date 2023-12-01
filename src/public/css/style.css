@@ -133,7 +133,19 @@ body{
 }
 .post-body video{
     height: 100%;
+    /* border: 2rem solid black; */
     width: 100%;
+}
+#lazyloader{
+    width: 100%;
+}
+/* The video controls styling */
+#lazyloader::webkit-media-controls{
+    display: none;
+}
+
+#lazyloader::webkit-media-controls-play-button{
+    display: block !important;
 }
 .post-actions{
     font-size: 1.5rem;
