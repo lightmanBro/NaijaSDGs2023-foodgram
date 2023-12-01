@@ -79,7 +79,7 @@ body{
     z-index: 100;
 }
 .post-heading{
-    /* border: .2rem solid tomato; */
+    border: .2rem solid tomato;
     font-size: 1.5rem;
     color: rgb(65, 64, 64);
     font-weight: 600;
@@ -288,7 +288,7 @@ body{
     }
     .post-body{
         margin: auto;
-        /* border: .2rem solid red; */
+        border: .2rem solid red;
     }
     .post-body video{
         width: 100%;
