@@ -59,8 +59,6 @@ body{
     padding: 1rem;
 }
 .post-container{
-    /* border:#eee .25rem solid; */
-    margin-top:.15rem;
     height: fit-content;
     width: 35rem;
 }
@@ -285,7 +283,7 @@ body{
     .post-container{
         width: 98vw;
         height: 90vh;
-        margin-left: -.5rem;
+        border: .2rem solid red;
         right: 0;
     }
     .post-body{
