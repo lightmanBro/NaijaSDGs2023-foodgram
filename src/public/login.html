@@ -4,10 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>foodgram login</title>
+    <link rel="shortcut icon" href="./img/foodgramLogo.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+      </style>
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
     <div class="container">
-        
+        <div id="login-container" class="login">
+            <form id="login-form" action="">
+                <div class="welcome">Welcome,</div>
+                <p class="glad">Glad to see you!</p>
+                <input id="email" type="email" name="email" placeholder="Email Address">
+                <input id="password" type="password" placeholder="Password">
+                <p class="forgot-password">Forgot Password?</p>
+                <button type="submit">Login</button>
+                <div class="new">Or login with</div>
+                <div class="other-method">
+                    <button>G</button><button>F</button>
+                </div>
+                <div class="new">Don't have an account? <span class="signUp-container-open">Sign Up</span></div>
+            </form>
+        </div>
+        <div id="register-container" class="register">
+            <form id="register" action="">
+                <div class="welcome">Create an account,</div>
+                <p class="glad">To get started now!</p>
+                <input type="email" name="email" placeholder="Email Address">
+                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Confirm Password">
+                <p class="forgot-password"></p>
+                <button>Register</button>
+                <div class="new">Or sign Up with</div>
+                <div class="other-method">
+                    <button>G</button><button>F</button>
+                </div>
+                <div class="new">Already have an account? <span class="login-container-open" href="">Login now</span></div>
+            </form>
+        </div>
     </div>
+    <script src="./script/login.js"></script>
 </body>
 </html>

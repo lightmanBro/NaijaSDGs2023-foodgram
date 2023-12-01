@@ -1,0 +1,98 @@
+*{
+    margin: none;
+    padding: none;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    text-decoration: none;
+    color: rgb(65, 64, 64);
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color:white;
+    color: rgb(65, 64, 64);
+    }
+
+.container{
+    background-color:rgb(255, 221, 0);
+    padding: 5rem;
+}
+.login,.register{
+    /* box-shadow: 0 .1rem .5rem .1rem  grey; */
+    width: 30%;
+    margin: auto;
+    text-align: center;
+    font-size: 2.5rem;
+}
+.welcome{
+    font-size: 3.5rem;
+    font-weight: 700;
+    /* border: .2rem solid red; */
+}
+.glad{
+    font-size: 2.5rem;
+    /* border: .2rem solid red; */
+    margin-top: -1rem;
+}
+input{
+    height: 4.5rem;
+    border-radius: .75rem;
+    width: 80%;
+    margin-top: 1rem;
+    border: .5rem solid white;
+
+    opacity: .5;
+    padding-inline-start: 2rem;
+    font-size: 2rem;
+    outline: none;
+}
+.forgot-password{
+    text-align: right;
+    margin-right: 20%;
+}
+button{
+    height: 4.5rem;
+    border-radius: .75rem;
+    width: 80%;
+    font-size: 2rem;
+    outline: none;
+    border: none;
+}
+input::placeholder{
+    text-align: left;
+    padding-inline-start: 2rem;
+    padding: 1rem;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.other-method{
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin:2rem auto;
+    gap: 1rem;
+}
+.new{
+    font-size: 1.5rem;
+    font-weight: 550;
+    margin: 1rem;
+}
+.new span{
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-decoration: underline;
+    cursor: pointer;
+}
+@media only screen and (max-width: 1000px) {
+    .login,.register{
+        width: 100%;
+    }
+    .container {
+        background: linear-gradient(to top left, rgba(255, 68, 0, 0.788), rgb(255, 221, 0));
+        height: 100vh;
+    }
+}

@@ -61,3 +61,7 @@ try {
     console.log(error.message)
 }
 
+setTimeout(() => {
+    console.log(JSON.parse(sessionStorage.getItem('userData'))) 
+}, 2000);
+
