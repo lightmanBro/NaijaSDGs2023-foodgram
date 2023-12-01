@@ -65,7 +65,7 @@ body{
     justify-content: space-between;
     border-radius: .275rem;
     width: 100%;
-    box-shadow: 0 .1rem .5rem .1rem  grey;
+    box-shadow: 0 .1rem .15rem .1rem  rgb(213, 213, 213);
     margin:.5rem auto;
 }
 .order-image{
@@ -77,10 +77,12 @@ body{
 .order-image img{
     width: 100%;
     height: 100%;
-    border-radius: .275rem;
+    border-radius: .5rem;
 }
 .order-name{
     font-weight: 600;
+    border-bottom: .25rem solid #eee;
+    text-align: center;
 }
 .order-price span{
     font-size: 2rem;
@@ -115,16 +117,13 @@ body{
 }
 .status-buttons span{
     font-weight: 700;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     color: grey;
 }
 
 
 /* Right container */
-.right-container{
-    /* border: .15rem solid green; */
-    
-}
+
 .right-container-heading{
     text-align: center;
     background-color: rgb(161, 161, 161);
@@ -152,26 +151,37 @@ body{
         display: block;
         padding: .25rem;
         margin: 0;
+        width: 98vw;
         margin-top: 8.5rem;
         border: none;
         margin-left: -.5rem;
     }
     .left-container,.right-container{
-        width: 100vw;
+        /* border: .15rem solid black; */
+        width: 98vw;
         padding: .25rem;
         margin: auto;
         display: flex;
-        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
         flex-direction: column;
         
     }
     .normal-orders{
-        padding: .25rem;
-        margin-left: -.25rem;
+        /* padding: .25rem; */
+        /* width: 98vw; */
+        margin: 0;
+        /* border: .15rem solid red; */
     }
     .normal-orders, .schedule-orders{
-        width: 100vw;
+        width: 98vw;
         font-size: 1.5rem;
         font-weight: 400;
+    }
+    .order-status-and-details{
+        font-size: 1.75rem;
+    }
+    .right-container-heading{
+        width: 100%;
     }
 }
