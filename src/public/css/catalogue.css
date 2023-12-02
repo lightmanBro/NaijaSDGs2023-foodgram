@@ -28,6 +28,7 @@ body{
     padding: 1rem;
     width: 50%;
 }
+
 .left-container-heading {
     display: flex;
     width: 70%;
@@ -48,8 +49,38 @@ body{
     justify-content: space-around;
 }
 
+.new-order-form{
 
+}
 
+.new-order-form input, select,textarea{
+    height: 5rem;
+    width: 60%;
+    padding-inline: 2rem;
+    font-size: 2rem;
+    outline: none;
+
+}
+div label,p {
+    font-size: 2rem;
+}
+div textarea{
+    height: 10rem;
+}
+input[type="date"]{
+   width: fit-content;
+   margin-left: 1rem;
+}
+select{
+    width: 25%;
+    text-align: center;
+}
+.process,.cancel{
+    background-color: #eee;
+}
+.process:active, .cancel:active{
+    background-color: #d1d1d1;
+}
 .normal-orders{
     /* border: .15rem solid blue; */
     padding: 1rem;

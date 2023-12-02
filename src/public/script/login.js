@@ -11,24 +11,24 @@ const loginData = new FormData(loginForm)
 loginForm.addEventListener('submit',(e)=>{
   const password = pass.value;
   const email= mail.value;
-  console.log(mail,pass)
   e.preventDefault();
-    fetch('http://localhost:3001/users/login',{
-      method:'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
-  })
-  .then(res=> res.json())
-  .then(data=>{
-    setTimeout(() => {
+  setTimeout(() => { window.location.href = 'http://127.0.0.1:5500/src/public/index.html'; }, 2000);
+  //   fetch('http://localhost:3001/users/login',{
+  //     method:'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ email, password })
+  // })
+  // .then(res=> res.json())
+  // .then(data=>{
+  //   setTimeout(() => {
 
-      sessionStorage.setItem('userData',JSON.stringify(data))
-      sessionStorage.getItem('userData')
-      console.log('userdata ',JSON.stringify(data),localStorage.getItem('userData'));
-      window.location.href = 'http://127.0.0.1:5500/src/public/index.html';  
-    }, 1500);
-  })
-  .catch(err=>console.log(err))
+  //     sessionStorage.setItem('userData',JSON.stringify(data))
+  //     sessionStorage.getItem('userData')
+  //     console.log('userdata ',JSON.stringify(data),localStorage.getItem('userData'));
+  //     window.location.href = 'http://127.0.0.1:5500/src/public/index.html';  
+  //   }, 1500);
+  // })
+  // .catch(err=>console.log(err))
   
 })
 

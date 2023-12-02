@@ -9,13 +9,15 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    background-color:white;
+    background-color:rgb(255, 221, 0);
     color: rgb(65, 64, 64);
     }
 
 .container{
     background-color:rgb(255, 221, 0);
     padding: 5rem;
+    width: 100vw;
+    height: 100%;
 }
 .login,.register{
     /* box-shadow: 0 .1rem .5rem .1rem  grey; */
@@ -90,9 +92,14 @@ input::placeholder{
 @media only screen and (max-width: 1000px) {
     .login,.register{
         width: 100%;
+        padding-top: 5rem;
+        height: inherit;
     }
     .container {
-        background: linear-gradient(to top left, rgba(255, 68, 0, 0.788), rgb(255, 221, 0));
+        background:  rgb(255, 221, 0);
         height: 100vh;
+        padding: 0;
+        width: 100vw;
+        margin: auto;
     }
 }

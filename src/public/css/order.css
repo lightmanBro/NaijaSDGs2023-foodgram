@@ -12,7 +12,7 @@ body{
 .container-body{
     left: 0;
     right: 0;
-    border: .2rem solid purple;
+    /* border: .2rem solid purple; */
 }
 .order-body{
     position: absolute;
