@@ -52,17 +52,18 @@
                             <option value="other">Customize time</option>
                         </select>
                     </div>
+                    
                     <div class="add-and-date">
                         <label for="delivery-date">Delivery date</label>
                         <input type="date" name="delivery-date" id="delivery-date">
                     </div>
                     <div>
-                        <p>You can customize your order <br> e.g Efo riro and rice with plenty locust beans...</p>
+                        <p>You can customize your order <br> e.g Efo riro and rice with plenty locust beans...<br> or state your allergies if you have any</p>
                         <textarea name="additional-message" id="" cols="30" rows="10" placeholder="Add additional message for vendor"></textarea>
                     </div>
                     <div class="process-buttons"><button class="process" type="submit">Process</button> <button class="cancel" type="reset" >Cancel</button></div>
                 </form>
-                
+
                 <div class="back"><span class="material-symbols-outlined"> arrow_back  </span></div>
                 <div id="ai-button">
                     <button class="process">Use Ai?</button>
@@ -113,6 +114,13 @@
                             <option value="home">Regular</option>
                             <option value="office">Premium</option>
                             <option value="other">Exclusive</option>
+                        </select>
+                    </div>
+                    <div class="add-and-date">
+                        <label for="delivery-time">Do you have Allergies</label>
+                        <select name="delivery-address" id="delivery-address">
+                            <option value="allergies-yes">Yes</option>
+                            <option value="allergies-no">No</option>
                         </select>
                     </div>
                     <div>

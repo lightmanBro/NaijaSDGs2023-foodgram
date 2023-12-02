@@ -7,7 +7,7 @@ const mail= document.querySelector('#email');
 const pass= document.querySelector('#password');
 
 const loginForm = document.querySelector('#login-form');
-const loginData = new FormData(loginForm)
+// const loginData = new FormData(loginForm)
 loginForm.addEventListener('submit',(e)=>{
   const password = pass.value;
   const email= mail.value;
