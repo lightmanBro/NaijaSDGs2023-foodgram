@@ -21,9 +21,12 @@
 
             <div class=" new-order">
                 <form id="new-order-form" class="new-order-form" action="">
-                    <input type="text" placeholder="Search for vendor or food" name="store-name">
+                    <div class="add-and-date">
+                        <input type="text" placeholder="Search for vendor or food" name="store-name">
+                        <button class="process">Search</button>
+                    </div>
                     <!-- <input type="text" placeholder="Search for store name" name="store-name"> -->
-                    <div>
+                    <div class="add-and-date">
                         <label for="delivery-address">Order type</label>
                         <select name="delivery-address" id="delivery-address">
                             <option value="home">Daily</option>
@@ -31,7 +34,7 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="add-and-date">
                         <label for="delivery-address">Delivery Address</label>
                         <select name="delivery-address" id="delivery-address">
                             <option value="home">Home</option>
@@ -39,7 +42,7 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="add-and-date">
                         <label for="delivery-time">Delivery Time</label>
                         <select name="delivery-address" id="delivery-address">
                             <option value="home">Breakfast 7am - 9am</option>
@@ -48,7 +51,7 @@
                             <option value="other">Customize time</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="add-and-date">
                         <label for="delivery-date">Delivery date</label>
                         <input type="date" name="delivery-date" id="delivery-date">
                     </div>

@@ -186,6 +186,19 @@ select{
         width: inherit;
         margin: auto;
     }
+    .add-and-date{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin:0 2rem;
+    }
+    .add-and-date select{
+        background-color:transparent;
+    }
+    .add-and-date button{
+        width: fit-content;
+        font-size: 1.5rem;
+    }
     .new-order{
         width: inherit;
         margin: 2rem auto;
@@ -216,6 +229,9 @@ select{
     input[type="date"]{
         width: fit-content;
         margin-left: 1rem;
+     }
+     input[name="store-name"]{
+        width: 80%;
      }
      .process-buttons{
         display: flex;
