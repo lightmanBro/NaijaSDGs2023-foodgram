@@ -49,8 +49,9 @@ body{
     justify-content: space-around;
 }
 
-.new-order-form{
-
+.new-order{
+   
+    margin: 2rem;
 }
 
 .new-order-form input, select,textarea{
@@ -181,11 +182,50 @@ select{
 /* Media query */
 
 @media only screen and (max-width: 749px) {
-
+    .user-action{
+        width: inherit;
+        margin: auto;
+    }
+    .new-order{
+        width: inherit;
+        margin: 2rem auto;
+    }
+    .new-order-form input{
+        width: 70%;
+        font-size: 1rem;
+    }
     #past{
         display: block;
         display: flex;
     }
+    select{
+        width: fit-content;
+    }
+    textarea{
+        width: 90%;
+    }
+    .new-order-form label{
+        font-size: 1.5rem;
+    }
+    p{
+        font-size: 1.2rem;
+    }
+    input{
+        height: 2rem;
+    }
+    input[type="date"]{
+        width: fit-content;
+        margin-left: 1rem;
+     }
+     .process-buttons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+     }
+     .process-buttons button{
+        font-size: 1.5rem;
+     }
+     /*   new-end */
     #none{
         display: none;
     }
@@ -201,7 +241,7 @@ select{
     
     .left-container-heading{
         /* border: .25rem solid red; */
-        width: 100%;
+        width: 98vw;
     }
     .left-container-heading span,a{
         padding: .25rem;
