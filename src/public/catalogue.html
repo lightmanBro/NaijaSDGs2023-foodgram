@@ -29,6 +29,7 @@
                     <div class="add-and-date">
                         <label for="delivery-address">Order type</label>
                         <select name="delivery-address" id="delivery-address">
+                            <option value="home">One off</option>
                             <option value="home">Daily</option>
                             <option value="office">Weekly</option>
                             <option value="other">Other</option>
@@ -54,6 +55,65 @@
                     <div class="add-and-date">
                         <label for="delivery-date">Delivery date</label>
                         <input type="date" name="delivery-date" id="delivery-date">
+                    </div>
+                    <div>
+                        <p>You can customize your order <br> e.g Efo riro and rice with plenty locust beans...</p>
+                        <textarea name="additional-message" id="" cols="30" rows="10" placeholder="Add additional message for vendor"></textarea>
+                    </div>
+                    <div class="process-buttons"><button class="process" type="submit">Process</button> <button class="cancel" type="reset" >Cancel</button></div>
+                </form>
+                
+                <div class="back"><span class="material-symbols-outlined"> arrow_back  </span></div>
+                <div id="ai-button">
+                    <button class="process">Use Ai?</button>
+                    <p>Ai is inpressive at using your budget to help you find good meal deals if you try it out, you'll be impressed.</p>
+                </div>
+                <form id="new-order-form-ai" class="new-order-form" action="">
+                    <div>
+                        <span class="ai-banner active flex material-symbols-outlined">   precision_manufacturing <span>Order Assisting friend</span>  </span>
+                    </div>
+                    <div class="ai-amount add-and-date">
+                        <label for="budget-amount">Whai is your budget?</label>
+                        <input type="text" placeholder="₦" name="budget-amount">
+                    </div>
+                    <!-- <input type="text" placeholder="Search for store name" name="store-name"> -->
+                    <div class="add-and-date">
+                        <label for="delivery-address">Order type</label>
+                        <select name="delivery-address" id="delivery-address">
+                            <option value="home">One off</option>
+                            <option value="home">Daily</option>
+                            <option value="office">Weekly</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="add-and-date">
+                        <label for="delivery-address">Delivery Address</label>
+                        <select name="delivery-address" id="delivery-address">
+                            <option value="home">Home</option>
+                            <option value="office">Office</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="add-and-date">
+                        <label for="delivery-time">Delivery Time</label>
+                        <select name="delivery-address" id="delivery-address">
+                            <option value="home">Breakfast 7am - 9am</option>
+                            <option value="office">Lunch 1pm - 3pm</option>
+                            <option value="Dinner">Dinner 6pm - 8:30pm</option>
+                            <option value="other">Customize time</option>
+                        </select>
+                    </div>
+                    <div class="add-and-date">
+                        <label for="delivery-date">Delivery date</label>
+                        <input type="date" name="delivery-date" id="delivery-date">
+                    </div>
+                    <div class="add-and-date">
+                        <label for="delivery-address">Package type</label>
+                        <select name="delivery-address" id="delivery-address">
+                            <option value="home">Regular</option>
+                            <option value="office">Premium</option>
+                            <option value="other">Exclusive</option>
+                        </select>
                     </div>
                     <div>
                         <p>You can customize your order <br> e.g Efo riro and rice with plenty locust beans...</p>

@@ -199,6 +199,9 @@ select{
         width: fit-content;
         font-size: 1.5rem;
     }
+    .ai-amount input{
+        width: 10rem;
+    }
     .new-order{
         width: inherit;
         margin: 2rem auto;
@@ -226,7 +229,7 @@ select{
     input{
         height: 2rem;
     }
-    input[type="date"]{
+    input[type="date"],.ai-amount input[type="text"]{
         width: fit-content;
         margin-left: 1rem;
      }
@@ -237,6 +240,9 @@ select{
         display: flex;
         align-items: center;
         justify-content: center;
+     }
+     div .ai-banner{
+        margin: 1.5rem 0;
      }
      .process-buttons button{
         font-size: 1.5rem;

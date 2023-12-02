@@ -2,15 +2,20 @@ const newOrderBtn = document.querySelector('#new');
 const daily = document.querySelector('#daily')
 const weekly = document.querySelector('#weekly');
 const past = document.querySelector('#past');
-const newOrderContainer = document.querySelector('.new-order')
+const newOrderContainer = document.querySelector('.new-order');
+const aiOrderBtn = document.querySelector('#ai-button');
 const dailyOrders = document.querySelector('.normal-orders')
 const scheduleOrders = document.querySelector('.schedule-orders');
+const goBackToNewOrderFormBtn = document.querySelector('.back');
+const newOrderForm = document.querySelector('#new-order-form');
+const aiOrderform = document.querySelector('#new-order-form-ai');
+
 const historyContainer = document.querySelector('.right-container');
 const historyContainerHead = document.querySelector('.right-container-heading');
-
+aiOrderform.style.display = 'none'
 scheduleOrders.style.display = 'none'
 dailyOrders.style.display = 'none';
-
+goBackToNewOrderFormBtn.style.display = 'none';
 
 newOrderBtn.addEventListener('click',()=>{
     daily.classList.remove('active');
@@ -55,4 +60,18 @@ past.addEventListener('click',()=>{
     scheduleOrders.style.display = 'none'
     historyContainer.style.display = 'block';
     historyContainerHead.style.display = 'none';
+})
+
+aiOrderBtn.addEventListener('click',()=>{
+    newOrderForm.style.display = 'none';
+    aiOrderform.style.display = 'block';
+    goBackToNewOrderFormBtn.style.display = 'block';
+    aiOrderBtn.querySelector('.process').textContent = 'Using ai';
+})
+
+goBackToNewOrderFormBtn.addEventListener('click',()=>{
+    newOrderForm.style.display = 'block';
+    aiOrderform.style.display = 'none';
+    goBackToNewOrderFormBtn.style.display = 'none';
+    aiOrderBtn.querySelector('.process').textContent = 'Use ai?';
 })
