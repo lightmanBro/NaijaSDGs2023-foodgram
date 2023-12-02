@@ -9,3 +9,6 @@ https://youtu.be/sz_zDu9Z1lQ
 
 link to documentation
 https://1drv.ms/w/c/781480affca433ce/EVMrRLHiwVpKoQHP0aufOQcBdDUPsxf0bfvRRefhjGHe_w?e=JWAYD1
+
+link to full walkthrough foodgram
+https://youtu.be/eLLHVZ1NgCA
