@@ -12,7 +12,7 @@ loginForm.addEventListener('submit',(e)=>{
   const password = pass.value;
   const email= mail.value;
   e.preventDefault();
-  setTimeout(() => { window.location.href = './src/public/index.html'; }, 2000);
+  setTimeout(() => { window.location.href = 'index.html'; }, 2000);
   //   fetch('http://localhost:3001/users/login',{
   //     method:'POST',
   //     headers: { 'Content-Type': 'application/json' },
