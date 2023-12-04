@@ -9,6 +9,26 @@
 #past{
     display: none;
 }
+#yellow{
+    background-color: #f1c40f5c;
+}
+#emrald{
+    background-color: #2ecc7050;
+    width: fit-content;
+    padding: .25rem;
+}
+.carrot{
+    background-color: #e67d2274;
+}
+.torquois{
+    background-color: #1abc9c64;
+}
+.reddish{
+    background-color: #e74d3c74;
+}
+.purple{
+    background-color: #8d44ad5d;
+}
 body{
     font-family:Arial, Helvetica, sans-serif;
     background-color:white;
