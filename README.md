@@ -12,3 +12,5 @@ https://1drv.ms/w/c/781480affca433ce/EVMrRLHiwVpKoQHP0aufOQcBdDUPsxf0bfvRRefhjGH
 
 link to full walkthrough foodgram
 https://youtu.be/eLLHVZ1NgCA
+
+link to google pitch deck slides
