@@ -5,41 +5,65 @@ class FoodOrderSystem {
         this.userAllergens = userAllergens;
     }
 
-    displayAvailableMeals() {
-        this.vendors.forEach(vendor => {
-            console.log(`\nVendor: ${vendor.name}`);
-            vendor.meals.forEach(meal => {
-                console.log(`${meal.name} - $${meal.price}`);
-            });
-        });
+    // ... (existing methods)
+
+    async fetchNutritionalData(ingredient) {
+        // Implement logic to fetch nutritional data for a given ingredient from an external source
+        // Example: Assume there's an external API for nutritional data
+        const apiUrl = `https://api.example.com/nutrition?ingredient=${ingredient}`;
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        return data;
     }
 
-    //Will pass vendor id instead of vendor index
-    /*Here will take in location of the user in relative to the vendors,*/ 
-    placeOrder(vendorIndex, mealIndex) {
+    async fetchNutritionalDataForIngredients(ingredients) {
+        // Implement logic to fetch nutritional data for multiple ingredients from an external source
+        const promises = ingredients.map(async ingredient => await this.fetchNutritionalData(ingredient));
+        return await Promise.all(promises);
+    }
+
+    mealMeetsHealthCriteria(meal, healthCriteria) {
+        // Implement logic to check if the meal meets the user's health criteria
+        // Consider nutritional values, allergies, etc.
+        // Return true if the meal is suitable for the user's health status
+
+        // Check allergies
+        const hasAllergens = meal.allergens.some(allergen => this.userAllergens.includes(allergen));
+
+        // Check health criteria using the provided callback function
+        const meetsCustomCriteria = healthCriteria(meal);
+
+        // Return true if there are no allergens and the custom health criteria are met
+        return !hasAllergens && meetsCustomCriteria;
+    }
+
+    mealFitsBudget(meal, dailyBudget) {
+        // Implement logic to check if the meal fits the user's budget for a day
+        // Return true if the meal is affordable within the daily budget
+        return meal.price <= dailyBudget;
+    }
+
+    async customizeOrder(vendorIndex, mealIndex, additionalRequirements) {
         const vendor = this.vendors[vendorIndex];
         const selectedMeal = vendor.meals[mealIndex];
-        console.log('vendorIndex:', vendorIndex);
-        console.log('mealIndex:', mealIndex);
-        console.log('this.vendors:', this.vendors);
-        console.log('vendor:', vendor);
 
-        if (selectedMeal.allergens.some(allergen => this.userAllergens.includes(allergen))) {
-            console.log("Warning: This meal contains allergens. Consider choosing a different meal.");
-            return;
-        }
+        // Fetch nutritional data for additional requirements
+        const nutritionalDataForAdditional = await this.fetchNutritionalDataForIngredients(additionalRequirements);
 
-        this.orders.push({
-            vendor: vendor.name,
-            meal: selectedMeal.name,
-            price: selectedMeal.price,
-            foodClasses: selectedMeal.foodClasses
-        });
+        // Create a customized meal with additional requirements and nutritional data
+        const customizedMeal = {
+            ...selectedMeal,
+            additionalRequirements: additionalRequirements,
+            nutritionalDataForAdditional: nutritionalDataForAdditional,
+            // ... (other customizations)
+        };
 
-        console.log(`\nOrder placed: ${selectedMeal.name} from ${vendor.name}`);
+        // ... (existing code)
+
+        console.log(`\nCustomized Order placed: ${customizedMeal.name} from ${vendor.name}`);
     }
 
-    planMealsForWeek(budget, days) {
+    async planMealsForWeek(budget, days, healthStatus) {
         const dailyBudget = budget / days;
         const dailyOrders = [];
 
@@ -51,9 +75,8 @@ class FoodOrderSystem {
                 vendor.meals.forEach(meal => {
                     if (
                         meal.price <= remainingBudget
-                        && meal.foodClasses.includes('protein')
-                        && meal.foodClasses.includes('carbohydrates')
-                        && !meal.allergens.some(allergen => this.userAllergens.includes(allergen))
+                        && this.mealMeetsHealthCriteria(meal, healthStatus)
+                        && this.mealFitsBudget(meal, remainingBudget)
                     ) {
                         dailyMeals.push({
                             vendor: vendor.name,
@@ -73,37 +96,20 @@ class FoodOrderSystem {
 }
 
 // Example usage
-//fetching the vendor list from the database and their foods data too.
 const vendorsList = [
-    { name: 'Vendor A', meals: [
-        { name: 'Jollof Rice', price: 5, foodClasses: ['carbohydrates'], allergens: ['nuts', 'shellfish'] },
-        // { name: 'Boiled Chicken', price: 5, foodClasses: ['protein', 'carbohydrates'], allergens: ['dairy'] }
-    ] },
-    {
-        name: 'Mama Bee Kitchen', meals: [
-            { name: 'Grilled Chicken', price: 8, foodClasses: ['protein', 'carbohydrates'], allergens: ['dairy'] },
-            { name: 'Boiled Chicken', price: 5, foodClasses: ['protein', 'carbohydrates'], allergens: ['dairy'] }
-        ]
-    },
-    {
-        name: 'Vendor B', meals: [
-            { name: 'Vegetable Soup', price: 4, foodClasses: ['vegetables'], allergens: ['gluten'] },
-            { name: 'Fish Stew', price: 7, foodClasses: ['protein'], allergens: ['dairy'] }
-        ]
-    }
+    // ... (existing vendor data)
 ];
 
-//The user allergies list
 const userAllergens = ['gluten'];
-
 const foodOrderSystem = new FoodOrderSystem(vendorsList, userAllergens);
+
 foodOrderSystem.displayAvailableMeals();
 
-// User clicks "Accept" button
-foodOrderSystem.placeOrder(2, 0);  // Example: Ordering Grilled Chicken from Vendor A
+// User clicks "Customize" button
+foodOrderSystem.customizeOrder(2, 0, ['low-sugar', 'high-fiber']);
 
-// Planning meals for a week
-const weeklyOrders = foodOrderSystem.planMealsForWeek(50);
+// Planning meals for a week with health criteria and budget
+const weeklyOrders = await foodOrderSystem.planMealsForWeek(100, 7, 'diabetic');
 console.log("\nWeekly Meal Plan:");
 weeklyOrders.forEach((dailyMeals, day) => {
     console.log(`Day ${day + 1}: ${dailyMeals.map(meal => meal.meal + ' from ' + meal.vendor).join(', ')}`);

@@ -8,6 +8,7 @@
 body{
     font-family:Arial, Helvetica, sans-serif;
     background-color:white;
+    color: rgb(92, 92, 92);
     }
 .container-heading,.suggestions{
     /* position: relative; */
@@ -183,7 +184,6 @@ body{
     right: 2rem;
     z-index: 100;
     padding: 1.25rem;
-    color: grey;
     background: white;
     /* box-shadow: 0 .1rem .5rem .1rem  grey; */
     border-radius: .5rem;
@@ -194,7 +194,6 @@ body{
 }
 .post-heading{
     font-size: 1.5rem;
-    color: rgb(65, 64, 64);
     font-weight: 600;
     /* padding: 1rem; */
     display: flex;
@@ -225,7 +224,6 @@ body{
     padding: .5rem;
     font-size: 1.5rem;
     text-align: center;
-    color: rgb(92, 92, 92);
     display: flex;
     align-items: center;
 }
@@ -270,7 +268,6 @@ source{
 }
 .post-actions{
     font-size: 1.5rem;
-    color: rgb(65, 64, 64);
     font-weight: 600;
     /* padding: 1rem; */
     display: flex;
@@ -283,7 +280,6 @@ source{
 }
 .post-actions button, a{
     outline: none;
-    color: rgb(92, 92, 92);
     font-weight: 600;
     border-radius: .25rem;
     font-size: 2rem;
@@ -293,11 +289,10 @@ source{
     /* border: none; */
     height: 3rem;
 }
-.post-actions a{
+/* .post-actions a{
     background-color: #eee;
-}
+} */
 .orders-count{
-    color: rgb(92, 92, 92);
     font-weight: 600;
     font-size: 2rem;
     width: fit-content;
@@ -308,7 +303,6 @@ source{
 }
 .likes,.time{
     font-size: 2rem;
-    color: rgb(92, 92, 92);
     padding-left: 1rem;
 }
 .time{
