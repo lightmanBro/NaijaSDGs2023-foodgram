@@ -78,7 +78,10 @@ function updateBackground() {
       body.style.backgroundColor = 'white'; // Daytime color
     } else {
       body.style.backgroundColor = 'black'; // Nighttime color
-     body.style.color = 'white'
+      body.style.color = 'white'
+      document.querySelector('.logo').style.backgroundColor = 'black';
+      document.querySelector('.logo').style.color = 'white';
+      document.querySelectorAll('.logo a').forEach(logo=>logo.style.color = 'white');
     }
   }
 
