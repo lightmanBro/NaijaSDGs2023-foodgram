@@ -85,6 +85,8 @@ function updateBackground() {
       document.querySelector('.logo').style.backgroundColor = 'black';
       document.querySelector('.logo').style.color = 'white';
       document.querySelectorAll('.logo a').forEach(logo=>logo.style.color = 'white');
+      document.querySelector('.add').style.color = 'white'
+      document.querySelector('.add').style.backgroundColor = 'black'
     }
   }
 

@@ -384,13 +384,20 @@ source{
     body{
         /* background-color: black; */
         /* border: .25rem solid blue; */
-        width: 100vw;
+        width: 99vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 0;
         
     }
     .container{
         margin-top: 2rem;
         /* border: .25rem solid red; */
         width: inherit;
+        margin-right: 0;
     }
     .container-heading{
         width: inherit;
@@ -404,11 +411,14 @@ source{
     }
     .status-boxes{
         /* z-index: 10; */
+        width: 98vw;
     }
     .suggestion-container{
+        padding: 0;
         height: 6.5rem;
        width: max-content;
        gap: 2rem;
+       width: 98vw;
        /* padding-inline: 2rem; */
     }
     .suggestion-text{
@@ -417,16 +427,16 @@ source{
         width: max-content;
     }
     .suggestion-img{
-        height: 95%;
+        /* height: 95%; */
     }
     .logo{
-        width: inherit;
+        width: 100%;
         padding: 1rem;
         margin: auto;
         top: 0;
         border-radius: 0;
         left: 0;
-        right: .5rem;
+        /* right: .5rem; */
         display: flex;align-items: center;
         justify-content: space-between;
 
@@ -438,19 +448,21 @@ source{
         /* position: relative; */
         /* border: .2rem solid black; */
         display: block;
-        width: inherit;
+        width: 100vw;
         gap: 0;
         margin: auto;
     }
     .post-container{
-        width: inherit;
+        width: 100vw;
         margin: auto;
-        right: 0;
+        margin-right: .25rem;
+        margin-left: 0;
     }
     .post-body{
-        width: inherit;
-        margin-top: 0;
-        margin: auto;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         /* border: .2rem solid red; */
     }
     .post-body video{
@@ -459,6 +471,8 @@ source{
     .post-body img{
         width: 100%;
         text-align: center;
+        margin-left: 0;
+        margin: auto;
     }
     .new-post{
         margin: auto;
