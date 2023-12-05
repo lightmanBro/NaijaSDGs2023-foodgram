@@ -64,7 +64,7 @@ body{
 }
 .silver{
     margin-left: 2rem;
-    color:goldenrod;
+    color:#fa983a;
     font-size: 4rem;
 }
 .order-details{
@@ -75,11 +75,11 @@ body{
     margin: auto;
 }
 .price{
-    background-color: rgb(255, 221, 0);
+    background-color: #eee;
     padding: 1rem;
 }
 button{
-    background-color: rgb(255, 221, 0);
+    background-color: #eee;
     outline: none;
     border: none;
     border-radius: .25rem;
@@ -115,10 +115,11 @@ label {
 select {
     font-size: 1.5rem;
     border: none;
+    font-weight: 500;
     padding: .5rem 1rem;
     margin-left: 1rem;
     outline: none;
-    color: tan;
+    color: black;
 }
 option {
     padding: 1.5rem;
@@ -207,7 +208,7 @@ span .material-symbols-outlined{
     border-radius: .5rem;
     padding: .5rem;
     padding-inline: 2rem;
-    background-color: rgb(255, 221, 0);
+    background-color:white;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
