@@ -15,9 +15,14 @@ class FoodOrderSystem {
     }
 
     //Will pass vendor id instead of vendor index
+    /*Here will take in location of the user in relative to the vendors,*/ 
     placeOrder(vendorIndex, mealIndex) {
         const vendor = this.vendors[vendorIndex];
         const selectedMeal = vendor.meals[mealIndex];
+        console.log('vendorIndex:', vendorIndex);
+        console.log('mealIndex:', mealIndex);
+        console.log('this.vendors:', this.vendors);
+        console.log('vendor:', vendor);
 
         if (selectedMeal.allergens.some(allergen => this.userAllergens.includes(allergen))) {
             console.log("Warning: This meal contains allergens. Consider choosing a different meal.");
@@ -70,28 +75,35 @@ class FoodOrderSystem {
 // Example usage
 //fetching the vendor list from the database and their foods data too.
 const vendorsList = [
-    { name: 'Vendor A', meals: [{ name: 'Jollof Rice', price: 5, foodClasses: ['carbohydrates'], allergens: ['nuts', 'shellfish'] }] },
+    { name: 'Vendor A', meals: [
+        { name: 'Jollof Rice', price: 5, foodClasses: ['carbohydrates'], allergens: ['nuts', 'shellfish'] },
+        // { name: 'Boiled Chicken', price: 5, foodClasses: ['protein', 'carbohydrates'], allergens: ['dairy'] }
+    ] },
     {
-        name: 'Mama Bee Kitchen', meals: [{ name: 'Grilled Chicken', price: 8, foodClasses: ['protein', 'carbohydrates'], allergens: ['dairy'] },
-        { name: 'Grilled Chicken', price: 8, foodClasses: ['protein', 'carbohydrates'], allergens: ['dairy'] }]
+        name: 'Mama Bee Kitchen', meals: [
+            { name: 'Grilled Chicken', price: 8, foodClasses: ['protein', 'carbohydrates'], allergens: ['dairy'] },
+            { name: 'Boiled Chicken', price: 5, foodClasses: ['protein', 'carbohydrates'], allergens: ['dairy'] }
+        ]
     },
     {
-        name: 'Vendor B', meals: [{ name: 'Vegetable Soup', price: 4, foodClasses: ['vegetables'], allergens: ['gluten'] },
-        { name: 'Fish Stew', price: 7, foodClasses: ['protein'], allergens: ['dairy'] }]
+        name: 'Vendor B', meals: [
+            { name: 'Vegetable Soup', price: 4, foodClasses: ['vegetables'], allergens: ['gluten'] },
+            { name: 'Fish Stew', price: 7, foodClasses: ['protein'], allergens: ['dairy'] }
+        ]
     }
 ];
 
 //The user allergies list
-const userAllergens = [];
+const userAllergens = ['gluten'];
 
 const foodOrderSystem = new FoodOrderSystem(vendorsList, userAllergens);
 foodOrderSystem.displayAvailableMeals();
 
 // User clicks "Accept" button
-foodOrderSystem.placeOrder(0, 2);  // Example: Ordering Grilled Chicken from Vendor A
+foodOrderSystem.placeOrder(2, 0);  // Example: Ordering Grilled Chicken from Vendor A
 
 // Planning meals for a week
-const weeklyOrders = foodOrderSystem.planMealsForWeek(20);
+const weeklyOrders = foodOrderSystem.planMealsForWeek(50);
 console.log("\nWeekly Meal Plan:");
 weeklyOrders.forEach((dailyMeals, day) => {
     console.log(`Day ${day + 1}: ${dailyMeals.map(meal => meal.meal + ' from ' + meal.vendor).join(', ')}`);

@@ -122,7 +122,7 @@ body{
 }
 /* Logo design */
 .logo{
-    background:   rgb(255, 221, 0);
+    background:   white;
     box-shadow: 0 .1rem .5rem .1rem  grey;
     border-radius: .25rem;
     position: fixed;
@@ -183,7 +183,7 @@ body{
     z-index: 100;
     padding: 1.25rem;
     color: grey;
-    background: rgb(255, 221, 0);
+    /* background: rgb(255, 221, 0); */
     /* box-shadow: 0 .1rem .5rem .1rem  grey; */
     border-radius: .5rem;
     width: fit-content;
@@ -283,7 +283,8 @@ source{
 .post-actions button, a{
     outline: none;
     /* box-shadow: 0 .1rem .15rem .1rem  grey; */
-    background-color:rgb(255, 221, 0);
+    /* background-color:rgb(255, 221, 0); */
+    border: .001rem solid #eee;
     color: rgb(92, 92, 92);
     font-weight: 600;
     border-radius: .25rem;
@@ -291,8 +292,11 @@ source{
     text-align: center;
     width:fit-content ;
     padding: 0 .5rem;
-    border: none;
+    /* border: none; */
     height: 3rem;
+}
+.post-actions a{
+    background-color: #eee;
 }
 .orders-count{
     color: rgb(92, 92, 92);
