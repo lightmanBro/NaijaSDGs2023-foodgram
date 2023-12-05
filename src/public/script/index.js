@@ -76,6 +76,9 @@ function updateBackground() {
     // Set background color based on current time
     if (currentTime >= dayStart && currentTime < nightStart) {
       body.style.backgroundColor = 'white'; // Daytime color
+      document.querySelector('.logo').style.backgroundColor = 'white';
+      document.querySelector('.logo').style.color = 'black';
+      document.querySelectorAll('.logo a').forEach(logo=>logo.style.color = 'black');
     } else {
       body.style.backgroundColor = 'black'; // Nighttime color
       body.style.color = 'white'
