@@ -129,7 +129,7 @@ select{
     justify-content: space-between;
     border-radius: .275rem;
     width: 100%;
-    box-shadow: 0 .1rem .15rem .1rem  rgb(213, 213, 213);
+    /* box-shadow: 0 .1rem .15rem .1rem  rgb(213, 213, 213); */
     margin:.5rem auto;
 }
 .order-image{

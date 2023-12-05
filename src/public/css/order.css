@@ -149,7 +149,7 @@ span .material-symbols-outlined{
 }
 .proceed{
     background-color: rgba(255, 221, 0, 0.484);
-    box-shadow: 0 .1rem .5rem .1rem  rgba(182, 182, 182, 0.584);
+    /* box-shadow: 0 .1rem .5rem .1rem  rgba(182, 182, 182, 0.584); */
     font-size: 2rem;
     font-weight: 700;
     width: 40%;
@@ -212,7 +212,7 @@ span .material-symbols-outlined{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    box-shadow: 0 .1rem .5rem .1rem  grey;
+    /* box-shadow: 0 .1rem .5rem .1rem  grey; */
 }
 .inner{
     text-align: center;
