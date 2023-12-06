@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const path = require('path');
+const User = require('./user');
 const Post = require('../model/posts');
 const multer = require('multer');
 const sharp = require('sharp');//Resizing of photo
@@ -42,13 +43,39 @@ route.post('/posts/createandupload', auth, upload.single('upload'), async (req, 
 
     try {
         await posts.save();
+        //Notify users when post is created
+        await createPostAndNotifyFollowers(req.user.id,posts._id);
+
         console.log(posts);
         res.status(200).send(posts);
     } catch (err) {
         res.send(err);
     }
 });
-
+const createPostAndNotifyFollowers = async (userId, posts) => {
+    try {  
+      // Find the user who created the post
+      const user = await User.findById(userId);
+  
+      // Notify each follower
+      user.followers.forEach(async (followerId) => {
+        await User.findByIdAndUpdate(
+          followerId,
+          {
+            $push: {
+              notifications: { postId: posts, status: 'unread' },
+            },
+          },
+          { new: true }
+        );
+      });
+  
+      console.log('Post created and followers notified');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
 //Create a text post
 route.post('/posts/create', auth, async (req, res) => {
     const posts = new Post({ ...req.body, owner: req.user.id });

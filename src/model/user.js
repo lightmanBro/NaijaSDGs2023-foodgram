@@ -23,7 +23,6 @@ const userSchema = new mongoose.Schema({
     },
     age: {
         type: Number,
-        required: true,
         validate() {
             if (this.age < 18) {
                 throw new Error('Age must be greater than 18')
@@ -41,7 +40,14 @@ const userSchema = new mongoose.Schema({
         }
     },
     tokens: [{ token: { type: String, required: true } }],
-    avatar: { type: Buffer }
+    avatar: { type: Buffer },
+    followers :[{type:mongoose.Schema.Types.ObjectId, ref:'User'}],
+    notifications: [
+        {
+          postId: { type: mongoose.Schema.Types.ObjectId, ref: 'Post' },
+          status: { type: String, enum: ['read', 'unread'], default: 'unread' },
+        },
+      ],
 },
     {
         timestamps: true

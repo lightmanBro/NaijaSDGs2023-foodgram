@@ -1,0 +1,91 @@
+*{
+    margin: none;
+    padding: none;
+    box-sizing: border-box;
+    font-size: 62.5%;
+    text-decoration: none;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+}
+.profile-info{
+    /* border: .25rem solid purple; */
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-start;
+}
+.avatar-and-etc{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .5rem;
+    /* border: .25rem solid tomato; */
+}
+.avatar{
+    border: .25rem solid purple;
+    height: 10rem;
+    width: 10rem;
+    padding: .25rem;
+    border-radius: 50%;
+}
+.name-and-ind{
+    width: fit-content;
+    /* border: .25rem solid purple; */
+}
+.name{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.industry{
+    font-size: 1.5rem;
+}
+/*  */
+
+.activities-and-numbers{
+    /* border: .25rem solid tomato; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    padding-inline: 1rem;
+    font-size: 2.5rem;
+}
+.post-counts, .followers-counts, .fed-count {
+    font-weight: 700;
+    text-align: center;
+}
+
+.post-counts p, .followers-counts p, .fed-count p{
+    font-size: 1.5rem;
+    font-weight:lighter;
+    text-align: center;
+}
+
+/*  */
+.profile-posts{
+    /* border: .25rem solid tomato; */
+    padding: 1rem;
+    display: flex;
+}
+.catalogue{
+    /* border: .25rem solid black; */
+    padding: 1rem;
+    width: 50%;
+    text-align: center;
+}
+.active{
+    /* border: .25rem solid green; */
+    padding: 1rem;
+    width: 50%;
+    text-align: center;
+}
+
+@media only screen and (max-width: 749px) {
+
+    
+}
