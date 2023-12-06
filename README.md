@@ -15,3 +15,7 @@ https://youtu.be/eLLHVZ1NgCA
 
 link to google pitch deck slides
 https://docs.google.com/presentation/d/1HXHQydU3jMIN0qPQyaXIR8hmBHdd3ABGLUL3sj-1p_U/edit?usp=sharing
+
+
+full documentation link
+https://docs.google.com/presentation/d/1O8vprMzGt639amZwEnmHZEQi2YIkmAKKhNSCt1hcZYA/edit#slide=id.p
