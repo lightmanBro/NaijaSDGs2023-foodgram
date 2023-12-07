@@ -75,3 +75,34 @@ goBackToNewOrderFormBtn.addEventListener('click',()=>{
     goBackToNewOrderFormBtn.style.display = 'none';
     aiOrderBtn.querySelector('.process').textContent = 'Use ai?';
 })
+
+
+function updateBackground() {
+    const body = document.body;
+    const currentTime = new Date().getHours();
+
+    // Define daytime and nighttime thresholds (you can adjust these)
+    const dayStart = 7; // 7 AM
+    const nightStart = 19; // 7 PM
+
+    // Set background color based on current time
+    if (currentTime >= dayStart && currentTime < nightStart) {
+      body.style.backgroundColor = 'white'; // Daytime color
+      document.querySelector('.logo').style.backgroundColor = 'white';
+      document.querySelector('.logo').style.color = 'black';
+      document.querySelectorAll('.logo a').forEach(logo=>logo.style.color = 'black');
+    } else {
+      body.style.backgroundColor = 'black'; // Nighttime color
+      body.style.color = 'white'
+      document.querySelector('.user-action').style.backgroundColor = 'black';
+      document.querySelector('.user-action').style.color = 'white';
+      document.querySelectorAll('.user-action a').forEach(logo=>logo.style.color = 'white');
+
+      document.querySelectorAll('select').forEach(select=>{select.style.color = 'white';
+      select.style.backgroundColor = 'black'})
+      document.querySelectorAll('option').forEach(option=>{option.style.color = 'white'; option.style.backgroundColor = 'black'})
+    }
+  }
+
+  // Initial call to set background based on the current time
+  updateBackground();

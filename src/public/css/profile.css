@@ -78,13 +78,15 @@ body{
     width: 50%;
     text-align: center;
 }
-.active{
+.active-order{
     /* border: .25rem solid green; */
     padding: 1rem;
     width: 50%;
     text-align: center;
 }
-
+.active{
+    border-bottom: .25rem solid black;
+}
 @media only screen and (max-width: 749px) {
 
     
