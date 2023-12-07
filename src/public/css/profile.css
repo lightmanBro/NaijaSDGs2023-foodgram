@@ -88,6 +88,17 @@ body{
     border-bottom: .25rem solid black;
 }
 @media only screen and (max-width: 749px) {
+    body{
+        /* border: .25rem solid green; */
+        width: 100vw;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 0;
 
+    }
+    .container{
+        width: 98vw;
+        margin: auto;
+    }
     
 }
