@@ -1,5 +1,4 @@
 const express = require('express');
-const hbs = require('hbs');
 const path = require('path');
 const User = require('./user');
 const Post = require('../model/posts');
@@ -13,8 +12,22 @@ const route = express.Router();
 route.get('/posts', async (req, res) => {
     try {
         const posts = await Post.find();
-        res.status(200).json(posts);
-        // res.render('dashboard')
+        // res.status(200).json(posts);
+        res.render('dashboard',{posts})
+        /*
+        <!-- Assuming you have a container to display posts -->
+            <div id="post-container">
+                {{#each posts}}
+                    <div class="post">
+                        <h2>{{title}}</h2>
+                        <p>{{content}}</p>
+                        <!-- Add other post details as needed -->
+                    </div>
+                {{/each}}
+            </div>
+
+        */
+    //    console.log(posts);
     } catch (err) {
         res.send(err);
     }
@@ -95,7 +108,7 @@ route.get('/posts/:id', auth, async (req, res) => {
     try {
         const post = await Post.findOne({ _id })
         if (!post) { return res.status(404).send('Not available anymore') }
-        res.status(200).send({ post })
+        res.status(200).render('order',{ post })
     } catch (e) { res.status(404).send }
 })
 

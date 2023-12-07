@@ -17,6 +17,9 @@ form.addEventListener('submit',(e)=>{
     e.preventDefault();
     console.log(formData.entries()[0]);
 })
+
+
+// Fetch Post by id
 // const postId = '6565c213aacd4547026b7e15'
 // fetch(`https://localhost:3001/posts/${postId}`)
 // .then(res=>res.json())
@@ -42,24 +45,24 @@ const playVideoInView = () =>{
     }
 };
 
-try {
-    const observer = new IntersectionObserver((entries,observer)=>{
+// try {
+//     const observer = new IntersectionObserver((entries,observer)=>{
     
-        entries.forEach(entry=>{
-            if(entry.isIntersecting){
-                playVideoInView();
-                console.log(entry)
-            }else if(!entry.isIntersecting){
-                video.pause()
-                console.log(entry)
-            }
-        });
-    },options);
+//         entries.forEach(entry=>{
+//             if(entry.isIntersecting){
+//                 playVideoInView();
+//                 console.log(entry)
+//             }else if(!entry.isIntersecting){
+//                 video.pause()
+//                 console.log(entry)
+//             }
+//         });
+//     },options);
     
-    observer.observe(video);
-} catch (error) {
-    console.log(error.message)
-}
+//     observer.observe(video);
+// } catch (error) {
+//     console.log(error.message)
+// }
 
 setTimeout(() => {
     console.log(JSON.parse(sessionStorage.getItem('userData'))) 
@@ -93,3 +96,14 @@ function updateBackground() {
 
   // Initial call to set background based on the current time
   updateBackground();
+
+
+  //Clicking to order
+
+  document.querySelectorAll('.post-container').forEach(post=>{
+
+    post.querySelector('#order-button').addEventListener('click',(e)=>{
+        e.preventDefault();
+        console.log(post.querySelector('.user-name').innerText)
+    })
+  })

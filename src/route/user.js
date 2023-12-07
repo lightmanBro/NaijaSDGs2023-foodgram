@@ -6,7 +6,7 @@ const multer = require('multer');// Uploading files
 const sharp = require('sharp');//Resizing of photo
 const mailer = require('../mailer/mail');// Sending mail
 
-
+const app = express();
 route.post('/users/register', async (req, res) => {
     const { name, email, password, age } = req.body;
     const user = await new User({ name, email, password, age });
@@ -21,6 +21,11 @@ route.post('/users/register', async (req, res) => {
         console.log(err)
     }
 });
+
+route.get('/login',async (req,res)=>{
+    res.render('login');
+})
+
 
 route.post('/users/login', async (req, res) => {
     const { email, password } = req.body;
@@ -251,10 +256,10 @@ route.get('/users/:userId/notifications', async (req, res) => {
     }
   });
   
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//     console.log(`Server is running on port ${PORT}`);
+// });
 
 
 module.exports = route;

@@ -39,6 +39,7 @@ const userSchema = new mongoose.Schema({
             }
         }
     },
+    storeName: {type:String},
     tokens: [{ token: { type: String, required: true } }],
     avatar: { type: Buffer },
     followers :[{type:mongoose.Schema.Types.ObjectId, ref:'User'}],
