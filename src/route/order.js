@@ -8,6 +8,9 @@ const route = express.Router();
 // will get the datails and also the post id.
 //The owner of the order will be the req.user._id;
 //The poster id will be on the body object
+
+
+//Creating an order from a post
 route.post('/order/:postId', auth, async (req, res) => {
   const postId = req.params.postId
   console.log(req.body)
@@ -25,7 +28,6 @@ route.post('/order/:postId', auth, async (req, res) => {
 //List order by id and status
 route.get('/order/:id', auth, async (req, res) => {
   const _id = req.params.id;
-  console.log(req.user.id);
   try {
     const order = await Order.findOne({ _id: _id, owner: req.user.id });
     if (!order) { return res.status(404).send("Order not found") }
@@ -51,6 +53,9 @@ route.get('/order', auth, async (req, res) => {
 });
 
 
+
+// Only vebdor can change the status of an order.
+
 //Edit order if the status is not completed
 route.patch('/order/:id', auth, async (req, res) => {
   console.log(req.params.id, req.user.id)
@@ -63,11 +68,9 @@ route.patch('/order/:id', auth, async (req, res) => {
     if (!order) {
       return res.status(404).send("Task not found or invalid id")
     }
-
     updates.forEach((update) => task[update] = req.body[update]);
     await order.save();
     res.send(order);
-
   } catch (err) { res.status(400).send(err.message) }
 })
 

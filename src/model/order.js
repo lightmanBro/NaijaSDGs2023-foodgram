@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
     
+    orderName:{type:String},
     postId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Post'},
     poster: {type: String, required: true},
     unit:{type:Number, required:true},
@@ -24,6 +25,26 @@ const orderSchema = new mongoose.Schema({
 })
 
 
+
+orderSchema.pre('save', async function(next){
+    try{
+        const post = await mongoose.model('Post').findById(this.postId);
+        if(post){
+            this.orderName = post.description;
+            const remainingOrder = post.orderAvailable - 1;
+            post.orderLeft = remainingOrder;
+            await post.save();
+        }
+    } catch(err){
+        next(err);
+    }
+})
+
+orderSchema.pre('remove', async function (next) {
+    const post = await mongoose.model('Post').findById(this.postId);
+    if(this.status === "active" || this.status === "pending")
+    next()
+})
 const Order = new mongoose.model('Order', orderSchema)
 module.exports = Order;
 

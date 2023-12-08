@@ -12,6 +12,7 @@ body{
 }
 .profile-info{
     /* border: .25rem solid purple; */
+    height: 60vh;
     padding: 1rem;
     display: flex;
     justify-content: flex-start;
@@ -21,6 +22,8 @@ body{
     background-repeat: no-repeat;
 }
 .avatar-and-etc{
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(.5rem);
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -52,6 +55,8 @@ body{
 
 .activities-and-numbers{
     /* border: .25rem solid tomato; */
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(.5rem);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,6 +96,9 @@ body{
 .active{
     border-bottom: .25rem solid black;
 }
+.activeWhite{
+    border-bottom: .25rem solid white;
+}
 @media only screen and (max-width: 749px) {
     body{
         /* border: .25rem solid green; */
@@ -103,6 +111,12 @@ body{
     .container{
         width: 98vw;
         margin: auto;
+    }
+    .profile-info{
+        height: 30vh;
+    }
+    .avatar-and-etc,.activities-and-numbers{
+        backdrop-filter: blur(.2rem);
     }
     
 }

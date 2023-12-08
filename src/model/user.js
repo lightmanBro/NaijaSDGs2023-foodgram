@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const validator = require('validator');// Validator for validating input values
 const bcrypt = require('bcrypt');// Password encryption
 const jwt = require('jsonwebtoken'); // web token for authentication
-const Order = require('./order')
+const Post = require('./posts');
+const Order = require('./order');
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -39,16 +40,19 @@ const userSchema = new mongoose.Schema({
             }
         }
     },
-    storeName: {type:String},
+    country: { type: String, required: true, trim: true },
+    state:{type:String, required:true,trim:true },
+    city:{type:String,required:true},
+    storeName: { type: String, require: true, trim: true },
     tokens: [{ token: { type: String, required: true } }],
     avatar: { type: Buffer },
-    followers :[{type:mongoose.Schema.Types.ObjectId, ref:'User'}],
+    followers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     notifications: [
         {
-          postId: { type: mongoose.Schema.Types.ObjectId, ref: 'Post' },
-          status: { type: String, enum: ['read', 'unread'], default: 'unread' },
+            postId: { type: mongoose.Schema.Types.ObjectId, ref: 'Post' },
+            status: { type: String, enum: ['read', 'unread'], default: 'unread' },
         },
-      ],
+    ],
 },
     {
         timestamps: true
@@ -112,7 +116,7 @@ userSchema.pre('save', async function (next) {
 //To delete all the tasks of a user when the user delete own account
 userSchema.pre('remove', async function (next) {
     const user = this;
-    await Task.deleteMany({ owner: user._id })
+    await Post.deleteMany({ owner: user._id })
     next()
 })
 

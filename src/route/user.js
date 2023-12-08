@@ -7,9 +7,16 @@ const sharp = require('sharp');//Resizing of photo
 const mailer = require('../mailer/mail');// Sending mail
 
 const app = express();
+
+//default landing page
+route.get('/login',async (req,res)=>{
+    res.render('login');
+})
+
+
 route.post('/users/register', async (req, res) => {
     const { name, email, password, age } = req.body;
-    const user = await new User({ name, email, password, age });
+    const user = new User({ name, email, password, storeName, country, state, city });
     const token = await user.generateAuthToken();
     //Call the mailer function and pass the needed parameters;
     // pass in the email, subject and message as text or html string.
@@ -22,9 +29,6 @@ route.post('/users/register', async (req, res) => {
     }
 });
 
-route.get('/login',async (req,res)=>{
-    res.render('login');
-})
 
 
 route.post('/users/login', async (req, res) => {
@@ -96,6 +100,8 @@ route.post('/users/me/upload-avatar', auth, upload.single('avatar'), async (req,
 })
 
 
+
+// Update user for both user and vendor
 route.patch('/users/me/update', auth, async (req, res) => {
     const updates = Object.keys(req.body);
     const allowedUpdates = ['name', 'email', 'password', 'age'];
@@ -124,6 +130,7 @@ route.delete('/users/me/delete', auth, async (req, res) => {
     }
 })
 
+//Change display picture
 route.delete('/users/me/remove-avatar', auth, async (req, res) => {
     try {
         req.user.avatar = null || undefined || "";
@@ -148,6 +155,8 @@ route.get('/users/:id/show-avatar', async (req, res) => {
 
 })
 
+
+//Finding a vendor by name
 // Your API endpoint for username suggestions
 route.get('/users/suggestions', async (req, res) => {
     const query = req.query.query;
@@ -231,6 +240,8 @@ route.post('/users/:userId/unfollow', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
+
 
 // Endpoint to fetch notifications
 route.get('/users/:userId/notifications', async (req, res) => {

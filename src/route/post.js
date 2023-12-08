@@ -12,22 +12,7 @@ const route = express.Router();
 route.get('/posts', async (req, res) => {
     try {
         const posts = await Post.find();
-        // res.status(200).json(posts);
         res.render('dashboard',{posts})
-        /*
-        <!-- Assuming you have a container to display posts -->
-            <div id="post-container">
-                {{#each posts}}
-                    <div class="post">
-                        <h2>{{title}}</h2>
-                        <p>{{content}}</p>
-                        <!-- Add other post details as needed -->
-                    </div>
-                {{/each}}
-            </div>
-
-        */
-    //    console.log(posts);
     } catch (err) {
         res.send(err);
     }
@@ -49,22 +34,21 @@ const upload = multer({
 // Create a media post
 route.post('/posts/createandupload', auth, upload.single('upload'), async (req, res) => {
     // console.log(req.body, req.file.buffer);
-    req.file.buffer ? req.file.buffer : undefined
     const buffer = await sharp(req.file.buffer).resize({ width: 250, height: 250 }).png().toBuffer() || '';
 
     const posts = new Post({ ...req.body, owner: req.user.id, file: buffer });
-
     try {
         await posts.save();
         //Notify users when post is created
         await createPostAndNotifyFollowers(req.user.id,posts._id);
 
-        console.log(posts);
+        // console.log(posts);
         res.status(200).send(posts);
     } catch (err) {
         res.send(err);
     }
 });
+
 const createPostAndNotifyFollowers = async (userId, posts) => {
     try {  
       // Find the user who created the post
@@ -89,19 +73,9 @@ const createPostAndNotifyFollowers = async (userId, posts) => {
     }
   };
   
-//Create a text post
-route.post('/posts/create', auth, async (req, res) => {
-    const posts = new Post({ ...req.body, owner: req.user.id });
-    try {
-        await posts.save();
-        console.log(posts);
-        res.status(200).send(posts);
-    } catch (err) {
-        res.send(err);
-    }
-});
 
 
+// When the view button is clicked
 //View posts on click
 route.get('/posts/:id', auth, async (req, res) => {
     const _id = req.params.id
@@ -112,6 +86,8 @@ route.get('/posts/:id', auth, async (req, res) => {
     } catch (e) { res.status(404).send }
 })
 
+
+// Only Vendors can do this
 //Edit posts
 route.patch('/posts/:id', auth, async (req, res) => {
     const _id = req.params.id;
@@ -132,6 +108,7 @@ route.patch('/posts/:id', auth, async (req, res) => {
     } catch (err) { res.status(400).send(err.message) }
 })
 
+// Only vendors can delete
 //Delete posts
 route.delete('/posts/:id', auth, async (req, res) => {
     try {
@@ -145,6 +122,8 @@ route.delete('/posts/:id', auth, async (req, res) => {
     }
 })
 
+
+// Vendors can have this function
 //Working Perfectly
 //List orders associated to a post
 route.get('/postsorders/:id', auth, async (req, res) => {
